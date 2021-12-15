@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+:root {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 10px;
+    --primary_green: #43D06B;
+    --red:#F66161;
+    --gray_2: #C2C2C2;
+    --gray_3: #DEDEDE;
+    --gray_4: #F0F0F0;
+    --gray_5: #F5F5F5;
+
+    --weight700 : 700;
+    --weight500: 500;
+    --weight400: 400;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+
+#hireme-logo {
+    width: 178px;
+    object-fit: cover;
+}
+
+.navbar {
+    padding: 16px 126px !important;
+    min-height: 120px !important;
+    background-color: white !important;
+    border-bottom: solid 1px var(--gray_3);
+}
+
+.search-bar-marketplace {
+    background-color: white;
+    border-radius: 100px;
+    min-width: 50vw;
+    min-height: 46px;
+    padding: 8px 16px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar-marketplace div {
+    height: initial !important;
+}
+
+#search-input {
+    border: transparent;
+    width: 100%;
+    border-radius: 100px;
+    font-size: 1.6rem;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+.search-submit {
+    border: transparent;
+    background-color: var(--primary_green);
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.search-submit:focus {
+    outline: none;
+}
+
+
+.search-submit i::before {
+    color: white;
+}
+
+.search-submit i:focus {
+    outline: none !important;
+}
+
+
+.cart-menu {
+    align-items: center;
+    padding-right: 3em;
+    border-right: solid 1px var(--gray_3);
+}
+
+.cart-menu a, .cart-menu a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.profile-menu {
+    padding-left: 3em;
+}
+
+.cart-counter {
+    background-color: var(--primary_green);
+    color: white;
+    border-radius: 100px;
+    width: 24px !important;
+    height: 24px !important;
+    text-align: center;
+    padding: 4px;
+    font-size: 1.2rem;
+}
+
+.search-results {
+    width: 90vw !important;
+    padding: 1em 170px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.market-type{
+    padding: 1em 170px;
+}
+
+#product{
+    margin-right: 2em;
+}
+
+.active, .disable{
+    border-bottom: solid 1.5px var(--primary_green);
+    padding-bottom: .5rem;
+    cursor: pointer;
+}
+
+.disable{
+    border-bottom: solid 1.5px var(--gray_2);
+}
+
+.active span, .disable span{
+    padding: 0 0.5em;
+}
+
+.active .iconify, .disable .iconify{
+    font-size: 2.4rem;
+    color: var(--primary_green);
+}
+
+.active span, .disable span{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary_green);
+    padding-left: 0.2rem;
+
+}
+
+.disable span{
+    color: var(--gray_2);
+    font-weight: normal;
+}
+.disable span, .disable .iconify{
+    color: var(--gray_2);
+}
+
+.cards{
+    overflow: hidden;
+    max-width: 270px;
+}
+
+
+.cards img{
+    text-align: center;
+}
+
+.row-cards{
+    padding: 0 170px;
+    margin: 4em 0;
+}
+
+.cards-details{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+.cards-details div:last-child{
+    font-weight: 400;
+}
+
+.order-item, .add-to-cart{
+    background-color: var(--primary_green);
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.order-item:focus, .add-to-cart:focus{
+   outline: none;
+}
+
+
+.add-to-cart{
+    background-color: white;
+    color: var(--primary_green);
+    align-items: center !important;
+}
+
+.add-to-cart span{
+    font-size: 2.4rem;
+}
+
+.nav-item div :hover{
+    text-decoration: underline;
+
+}
+.nav-item div{
+    color: black !important;
+}
+
+.dropdown-menu li{
+    font-size: 1.4rem;
+    width: 7vw;
+    outline: transparent;
+}
+
+.dropdown-item:focus{
+    outline: transparent;
+    background-color: var(--gray_5) !important;
+    color: black !important;
+}
+
+.category-navbar{
+    font-size: 1.6rem;
+    color: black;
+    min-height: 60px !important;
+}
+
+.category-navbar ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.category-navbar ul li{
+    list-style-type: none;
+    margin: 0 24px;
+}
+
+.category-link, .category-link:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+

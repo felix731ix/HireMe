@@ -1,0 +1,97 @@
+.profile-title {
+    width: 90vw !important;
+    padding: 1em 170px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.user-profile {
+    padding: 56px 32px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    margin: 32px 0;
+}
+
+
+.upload-photo form {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+.btnUploadFileHidden::-webkit-file-upload-button {
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    border-radius: 100px;
+    color: black;
+    border: solid 1px black;
+    background: transparent;
+}
+
+.btnUpload {
+    padding: 8px 16px;
+    font-size: 1.4rem;
+    background-color: transparent;
+    color: black;
+    outline: none;
+    border: solid 1px black;
+    border-radius: 100px;
+}
+
+.profile-details {
+    font-size: 1.4rem;
+}
+
+.input-field {
+    border: transparent;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.input-password::placeholder{
+    color: var(--gray_2);
+}
+
+.btnSaveChanges, .btnSaveChanges:focus {
+    background-color: var(--primary_green);
+    padding: 10px 16px;
+    border-radius: 100px;
+    color: white;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 27px;
+}
+
+.user-menu {
+    padding: 40px;
+}
+
+.nav-item-custom {
+    background-color: var(--gray_5);
+    border-radius: 100px;
+    padding: 16px 10px;
+    color: black;
+    font-weight: var(--weight500);
+    font-size: 1.4rem;
+    cursor: none;
+}
+
+.nav-item-custom:hover {
+    color: black !important;
+}
+
+.error-label {
+    text-align: left;
+    margin: 8px 0
+}
+
+.error-label span {
+    color: var(--red);
+    font-size: 1.2rem
+}
+
