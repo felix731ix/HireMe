@@ -18,7 +18,7 @@ class CheckoutController extends Controller
 
     public function checkOutViaCart(Request $request)
     {
-        $data = Cart::all()->where('user_id', auth()->user()->id);
+        $data = Cart::where('user_id', auth()->user()->id)->get();
         $categories = Category::all();
         return view('payment/payment_cart')->with('data', $data)->with('categories', $categories);
     }
@@ -58,7 +58,6 @@ class CheckoutController extends Controller
         $categories = Category::all();
 
         $cardNumber = $request->card_number;
-
 
         $rules=[
           'card_number'=>'required|min:18',

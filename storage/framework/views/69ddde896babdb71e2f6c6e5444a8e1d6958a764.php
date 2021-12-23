@@ -60,8 +60,7 @@
                             </form>
                             <div class="icon">
                                 <form action="/remove/<?php echo e($carts[$i]->id); ?>" method="POST">
-                                    <?php echo e(csrf_field()); ?>
-
+                                    <?php echo csrf_field(); ?>
                                     <?php echo e(method_field('delete')); ?>
 
                                     <button style="border: transparent;cursor:pointer;outline: none; background-color: transparent">
@@ -71,6 +70,7 @@
                             </div>
                         </div>
                         <?php
+
                         $sumTotal = $sumTotal + ($carts[$i]->quantity * $carts[$i]->products->price);
                         ?>
                     </div>

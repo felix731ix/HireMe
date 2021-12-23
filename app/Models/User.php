@@ -12,10 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-//    public function checkout(){
-//        return $this->hasMany(Cart::class, 'user_id', 'id');
-//    }
-
     protected $guarded=[];
 
 

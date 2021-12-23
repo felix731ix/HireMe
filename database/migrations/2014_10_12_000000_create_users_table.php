@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('profile_picture');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@
 <section class="d-flex container justify-content-between">
     <div class="user-profile text-center" style="width: 350px">
         <div class="upload-photo">
-            <img src="<?php echo e(Storage::url($data[0]->profile_picture)); ?>" width="175" height="175"
+            <img src="<?php echo e(Storage::url(auth()->user()->profile_picture)); ?>" width="175" height="175"
                  style="border-radius: 100px; object-fit: cover">
         </div>
         <div class="profile-details" style="overflow: hidden">

@@ -38,7 +38,7 @@
                         <label>Expiration Date</label>
                     </div>
                     <div class="row" style="align-items: center; text-align: center">
-                        <div class="col"><input id="cardMonth" name="expiration_month" type="text" nonchange="limit(this, this.value)" maxlength="2" class="input-field"></div>
+                        <div class="col"><input id="cardMonth" name="expiration_month" type="text" onchange="limit(this, this.value)" maxlength="2" class="input-field"></div>
                         <span style="font-size: 2.4rem">/</span>
                         <div class="col"><input id="cardYear"  name="expiration_year" type="text" onchange="limitYear(this, this.value)" maxlength="2" class="input-field"></div>
                     </div>

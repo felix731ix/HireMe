@@ -15,9 +15,8 @@ class CartController extends Controller
 {
     public function cart()
     {
-        $carts = Cart::all()->where('user_id', auth()->user()->id);
-        $sumQty = Cart::all()
-            ->sum('quantity');
+        $carts = Cart::where('user_id', auth()->user()->id)->get();
+        $sumQty = Cart::where('user_id', auth()->user()->id)->sum('quantity');
         $categories = Category::all();
         return view('/checkout/mycart')->with('carts', $carts)->with('quantity', $sumQty)->with('categories', $categories);
     }
@@ -38,8 +37,7 @@ class CartController extends Controller
     }
 
     private function checkCartItem($id){
-        $boolean = Cart::where('product_id', $id)->first();
-//        dd(count($boolean));
+        $boolean = Cart::where('product_id', $id)->where('user_id', auth()->user()->id)->first();
         if($boolean != null){
             $boolean->quantity++;
             $boolean->save();
@@ -47,8 +45,6 @@ class CartController extends Controller
         }
         return false;
     }
-
-
 
     public function removeFromCart($id)
     {

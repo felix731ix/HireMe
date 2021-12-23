@@ -68,6 +68,7 @@
                             </div>
                         </div>
                         @php
+
                         $sumTotal = $sumTotal + ($carts[$i]->quantity * $carts[$i]->products->price);
                         @endphp
                     </div>
