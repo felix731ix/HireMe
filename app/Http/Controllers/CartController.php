@@ -55,14 +55,15 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function updateQty($id, $qty)
+    public function updateQty(Request $request)
     {
-        $carts = Cart::find($id);
+        $carts = Cart::where('product_id', $request->id)->where('user_id', auth()->user()->id)->first();
         if($carts != null){
-            $qty = (int)$qty;
+            $qty = (int)$request->qty;
             $carts->quantity = $qty;
             $carts->save();
         }
+
         return redirect()->back();
     }
 

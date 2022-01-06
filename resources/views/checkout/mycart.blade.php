@@ -49,14 +49,12 @@
                         </div>
                         <br>
                         <div class="d-flex">
-                            <form  class="d-flex form" style="align-items: end">
-                                {{csrf_field()}}
-                                <div
-                                    style="font-size: 1.4rem; border-right: solid 1px var(--gray_3); padding-right: 2em">
+                            <div  class="d-flex form" style="align-items: end">
+                                <div style="font-size: 1.4rem; border-right: solid 1px var(--gray_3); padding-right: 2em">
                                     <label style="margin: 0">Quantity</label>
-                                    <input id="input-qty" name="inputQty" style="text-align: right; width: 2vw" type="number" onchange="updateQty({{$carts[$i]->id}}, this.value)" class="input-form" min="1" value="{{$carts[$i]->quantity}}">
+                                    <input id="input-qty" price={{$carts[$i]->products->price}} product-id={{$carts[$i]->products->id}} name="inputQty" style="text-align: right; width: 2vw" type="number" onchange="updateQty(this)" class="input-form input-qty" min="1" value="{{$carts[$i]->quantity}}">
                                 </div>
-                            </form>
+                            </div>
                             <div class="icon">
                                 <form action="/remove/{{$carts[$i]->id}}" method="POST">
                                     @csrf
@@ -68,7 +66,6 @@
                             </div>
                         </div>
                         @php
-
                         $sumTotal = $sumTotal + ($carts[$i]->quantity * $carts[$i]->products->price);
                         @endphp
                     </div>
@@ -79,11 +76,11 @@
             <div class="checkout-area">
                 <span>Checkout summary</span>
                 <div class="d-flex row checkout-details">
-                    <span class="flex-shrink-1 col">Total price ({{$quantity}} items)</span>
-                    <span class="col">@currency($sumTotal)</span>
+                    <span class="flex-shrink-1 col">Total price(<span id="quantity-summary">{{$quantity}}</span> items)</span>
+                    <span class="col" id="sum-total">@currency($sumTotal)</span>
                 </div>
                 <form action="/checkout">
-                    <button class="btnOrderCart">Order @currency($sumTotal)</button>
+                    <button class="btnOrderCart">Order <span id="sum-total-btn">@currency($sumTotal)</span></button>
                 </form>
             </div>
         </div>
@@ -91,9 +88,41 @@
 </section>
 @endif
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    function updateQty(id, qty){
-        window.location.href="/updateProduct/"+id+"/"+qty;
+
+    function updateQty(element){
+        var productId = $(element).attr("product-id");
+        var qtyVal = $(element).val();
+        var totalItem = 0, totalPrice = 0;
+        $.ajax({
+            url: "/updateProduct",
+            method: "POST",
+            data: {
+                'id': productId,
+                'qty': qtyVal,
+                '_token': "{{ csrf_token() }}",
+                '_method' : "PUT"
+            },
+            error: function(e) {
+                // alert('Error dalam checkout cart');
+            },
+            success:function (e){
+                $('.input-qty').each(function (){
+                    var rowQty  = $(this).val();
+                    var rowPrice = $(this).attr('price');
+                    totalItem += parseInt(rowQty);
+                    totalPrice += parseInt(rowQty) * rowPrice;
+                });
+
+                var totalPriceConverted = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0, }).format(totalPrice);
+                document.getElementById('quantity-summary').innerHTML = totalItem;
+                document.getElementById('sum-total').innerHTML = totalPriceConverted
+                document.getElementById('sum-total-btn').innerHTML = totalPriceConverted;
+                },
+            complete : function(e) {
+            }
+        })
     }
 </script>
 </html>

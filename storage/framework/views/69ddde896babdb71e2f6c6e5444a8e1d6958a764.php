@@ -49,15 +49,12 @@
                         </div>
                         <br>
                         <div class="d-flex">
-                            <form  class="d-flex form" style="align-items: end">
-                                <?php echo e(csrf_field()); ?>
-
-                                <div
-                                    style="font-size: 1.4rem; border-right: solid 1px var(--gray_3); padding-right: 2em">
+                            <div  class="d-flex form" style="align-items: end">
+                                <div style="font-size: 1.4rem; border-right: solid 1px var(--gray_3); padding-right: 2em">
                                     <label style="margin: 0">Quantity</label>
-                                    <input id="input-qty" name="inputQty" style="text-align: right; width: 2vw" type="number" onchange="updateQty(<?php echo e($carts[$i]->id); ?>, this.value)" class="input-form" min="1" value="<?php echo e($carts[$i]->quantity); ?>">
+                                    <input id="input-qty" price=<?php echo e($carts[$i]->products->price); ?> product-id=<?php echo e($carts[$i]->products->id); ?> name="inputQty" style="text-align: right; width: 2vw" type="number" onchange="updateQty(this)" class="input-form input-qty" min="1" value="<?php echo e($carts[$i]->quantity); ?>">
                                 </div>
-                            </form>
+                            </div>
                             <div class="icon">
                                 <form action="/remove/<?php echo e($carts[$i]->id); ?>" method="POST">
                                     <?php echo csrf_field(); ?>
@@ -70,7 +67,6 @@
                             </div>
                         </div>
                         <?php
-
                         $sumTotal = $sumTotal + ($carts[$i]->quantity * $carts[$i]->products->price);
                         ?>
                     </div>
@@ -81,11 +77,11 @@
             <div class="checkout-area">
                 <span>Checkout summary</span>
                 <div class="d-flex row checkout-details">
-                    <span class="flex-shrink-1 col">Total price (<?php echo e($quantity); ?> items)</span>
-                    <span class="col">Rp <?php echo number_format($sumTotal,0,',','.'); ?></span>
+                    <span class="flex-shrink-1 col">Total price(<span id="quantity-summary"><?php echo e($quantity); ?></span> items)</span>
+                    <span class="col" id="sum-total">Rp <?php echo number_format($sumTotal,0,',','.'); ?></span>
                 </div>
                 <form action="/checkout">
-                    <button class="btnOrderCart">Order Rp <?php echo number_format($sumTotal,0,',','.'); ?></button>
+                    <button class="btnOrderCart">Order <span id="sum-total-btn">Rp <?php echo number_format($sumTotal,0,',','.'); ?></span></button>
                 </form>
             </div>
         </div>
@@ -93,9 +89,41 @@
 </section>
 <?php endif; ?>
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    function updateQty(id, qty){
-        window.location.href="/updateProduct/"+id+"/"+qty;
+
+    function updateQty(element){
+        var productId = $(element).attr("product-id");
+        var qtyVal = $(element).val();
+        var totalItem = 0, totalPrice = 0;
+        $.ajax({
+            url: "/updateProduct",
+            method: "POST",
+            data: {
+                'id': productId,
+                'qty': qtyVal,
+                '_token': "<?php echo e(csrf_token()); ?>",
+                '_method' : "PUT"
+            },
+            error: function(e) {
+                // alert('Error dalam checkout cart');
+            },
+            success:function (e){
+                $('.input-qty').each(function (){
+                    var rowQty  = $(this).val();
+                    var rowPrice = $(this).attr('price');
+                    totalItem += parseInt(rowQty);
+                    totalPrice += parseInt(rowQty) * rowPrice;
+                });
+
+                var totalPriceConverted = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0, }).format(totalPrice);
+                document.getElementById('quantity-summary').innerHTML = totalItem;
+                document.getElementById('sum-total').innerHTML = totalPriceConverted
+                document.getElementById('sum-total-btn').innerHTML = totalPriceConverted;
+                },
+            complete : function(e) {
+            }
+        })
     }
 </script>
 </html>

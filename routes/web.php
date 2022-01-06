@@ -36,7 +36,7 @@ Route::get('/marketpage/{id}',[\App\Http\Controllers\ProductServiceController\Pr
 
 /*Cart*/
 Route::get('/cart',[App\Http\Controllers\CartController::class, 'cart']);
-Route::get('/updateProduct/{id}/{qty}', [\App\Http\Controllers\CartController::class, 'updateQty']);
+Route::put('/updateProduct', [\App\Http\Controllers\CartController::class, 'updateQty']);
 Route::post('/item',[\App\Http\Controllers\CartController::class, 'addToCart']);
 Route::delete('/remove/{id}',[\App\Http\Controllers\CartController::class, 'removeFromCart']);
 

@@ -91,8 +91,11 @@
             qtySpan.innerHTML = "Total price (" + value + " items)";
         }
 
-        btnOrderNow.innerText = "Order Rp " + totalPrice;
-        subTotalPrice.innerText = "Rp " + totalPrice;
+        var totalPriceConverted = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0, }).format(totalPrice);
+
+        btnOrderNow.innerText = "Order " + totalPriceConverted;
+        subTotalPrice.innerText = totalPriceConverted;
     }
 </script>
+
 </html>
