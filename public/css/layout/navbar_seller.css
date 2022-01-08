@@ -27,22 +27,22 @@
 }
 
 .navbar {
-    /* padding: 16px 126px !important; */
+    padding: 16px 126px !important;
     min-height: 120px !important;
     background-color: white !important;
     border-bottom: solid 1px var(--gray_3);
 }
 
-.search-bar-marketplace {
+/* .search-bar-marketplace {
     background-color: white;
     border-radius: 100px;
     min-width: 50vw;
     min-height: 46px;
     padding: 8px 16px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
-}
+} */
 
-.search-bar-marketplace div {
+/* .search-bar-marketplace div {
     height: initial !important;
 }
 
@@ -78,14 +78,19 @@
 
 .search-submit i:focus {
     outline: none !important;
-}
+} */
 
 
-.cart-menu {
+/* .cart-menu {
     align-items: center;
     padding-right: 3em;
-    /* border-right: solid 1px var(--gray_3); */
+    border-right: solid 1px var(--gray_3);
 }
+
+.cart-menu a, .cart-menu a:hover{
+    text-decoration: none;
+    color: black;
+} */
 
 .btn-role {
     align-items: center;
@@ -107,16 +112,31 @@
     /* margin-top: 27px; */
 }
 
-.cart-menu a, .cart-menu a:hover{
-    text-decoration: none;
-    color: black;
-}
-
 .profile-menu {
     padding-left: 3em;
 }
 
-.cart-counter {
+/* .btn-role {
+    align-items: center;
+    padding-right: 3em;
+    padding-left: 3em;
+    border-right: solid 1px var(--gray_3);
+} */
+
+.nav-menu{
+    background-color: white;
+    padding: 10px 16px;
+    /* border-radius: 50px; */
+    color: var(--primary_green);
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    /* margin-top: 27px; */
+}
+
+/* .cart-counter {
     background-color: var(--primary_green);
     color: white;
     border-radius: 100px;
@@ -125,17 +145,17 @@
     text-align: center;
     padding: 4px;
     font-size: 1.2rem;
-}
+} */
 
-.search-results {
+/* .search-results {
     width: 90vw !important;
     padding: 1em 170px;
     font-size: 3.2rem;
     font-weight: 700;
     overflow: hidden;
-}
+} */
 
-.market-type{
+/* .market-type{
     padding: 1em 170px;
 }
 
@@ -271,6 +291,6 @@
     cursor: pointer;
     text-decoration: none;
     color: black;
-}
+} */
 
 

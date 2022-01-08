@@ -2,22 +2,30 @@
     <a class="navbar-brand" href="/marketpage"><img
             src="{{\Illuminate\Support\Facades\URL::asset('asset/HireMe 1 - Black Transparent.png')}}" id="hireme-logo"></a>
 
-    <form action="/marketpage/search-item" class="d-flex justify-content-between search-bar-marketplace">
+    {{-- <form action="/marketpage/search-item" class="d-flex justify-content-between search-bar-marketplace">
         <input type="text" name="query" id="search-input" placeholder='Try "Pizza Photographer"'>
         <div>
             <button type="submit" class="search-submit"><i class="icon-search"
                                                                        style="font-size: 2.4rem"></i></button>
         </div>
-    </form>
+    </form> --}}
 
-    <div class="d-flex justify-content-between">
+    {{-- <div class="d-flex justify-content-between">
         <div class="cart-menu d-flex" style="align-items: center">
             <a href="/cart" class="d-flex flex-fill align-items-center" style="cursor: pointer">
                 <span class="iconify" data-icon="la:shopping-cart" style="font-size: 32px"></span>
-                <div style="font-size: 1.4rem; margin-top: 0.4em">Cart</div>
-{{--                <div class="checkout-counter" style="width: 24px; height: auto; display: block">0</div>--}}
-            </a>
-        </div>
+                <div style="font-size: 1.4rem; margin-top: 0.4em">Cart</div></a>
+        </div> --}}
+        <div class="d-flex justify-content-between align-items-center align-middle">
+            <div class="nav-item d-flex align-middle" style="align-items: center">
+                <a href="#" class="nav-link d-flex flex-fill align-items-center font-weight-bold" style="cursor: pointer">
+                    {{-- <span class="iconify" data-icon="la:shopping-cart" style="font-size: 32px"></span> --}}
+                    <div class="nav-menu" style="font-size: 1.4rem">Dashboard</div>
+                 </a>
+                 {{-- <form action="/switch-to-seller" class="d-flex flex-fill align-items-center">
+                    <button class="btnSwitchRole font-weight-bold" style="font-size: 1.4rem" type="submit">Switch to Buyer</button>
+                </form> --}}
+            </div>
 
         <div class="d-flex justify-content-between align-items-center align-middle">
             <div class="btn-role d-flex align-middle" style="align-items: center">
@@ -25,8 +33,8 @@
                     <span class="iconify" data-icon="la:shopping-cart" style="font-size: 32px"></span>
                     <div style="font-size: 1.4rem; margin-top: 0.4em">Cart</div>
                  </a> --}}
-                 <form action="/switch-to-buyer" class="d-flex flex-fill align-items-center">
-                    <button class="btnSwitchRole font-weight-bold" style="font-size: 1.4rem" type="submit">Switch to Seller</button>
+                 <form action="/switch-to-seller" class="d-flex flex-fill align-items-center">
+                    <button class="btnSwitchRole font-weight-bold" style="font-size: 1.4rem" type="submit">Switch to Buyer</button>
                 </form>
             </div>
 
@@ -71,10 +79,10 @@
     </div>
 </nav>
 
-<nav class="navbar d-flex justify-content-center category-navbar">
+{{-- <nav class="navbar d-flex justify-content-center category-navbar">
     <ul>
         @for($i=0;$i<count($categories);$i++)
             <li><a href="/category/{{$categories[$i]->id}}" class="category-link">{{$categories[$i]->name}}</a></li>
         @endfor
     </ul>
-</nav>
+</nav> --}}

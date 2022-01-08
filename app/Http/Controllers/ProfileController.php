@@ -7,6 +7,7 @@ use App\Models\TransactionDetails;
 use App\Models\TransactionHeaders;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -75,5 +76,10 @@ class ProfileController extends Controller
         $user->save();
 
         return redirect()->back();
+    }
+
+    public function switchToSeller(){
+        DB::table('users')->where('id', '=', auth()->user()->id)->update(['role' => 'buyer']);
+        return redirect()->route('profile');
     }
 }

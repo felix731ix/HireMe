@@ -50,9 +50,17 @@ Route::get('/order-now/{id}', [\App\Http\Controllers\CheckoutController::class, 
 Route::post('/validate-payment',[\App\Http\Controllers\CheckoutController::class, 'checkPayment']);
 Route::post('/success',[\App\Http\Controllers\CheckoutController::class, 'paymentController']);
 
+/*Switch Role*/
+Route::get('/switch-to-seller', [\App\Http\Controllers\SellerController::class, 'switchToSeller']);
+Route::get('/switch-to-buyer', [\App\Http\Controllers\ProfileController::class, 'switchToBuyer']);
+
 /*Profile*/
-Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'show']);
+Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile');
 Route::post('/update-profile', [\App\Http\Controllers\ProfileController::class, 'updateProfile']);
 
 /*Export Data*/
 Route::post('/export', [\App\Http\Controllers\TransactionHistoryController::class, 'transactionHistoryExport']);
+
+/*Seller Dashboard*/
+Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'dashboard'])->name('dashboard');
+
