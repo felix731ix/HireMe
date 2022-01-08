@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->longText('description');
             $table->string('image');
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 
