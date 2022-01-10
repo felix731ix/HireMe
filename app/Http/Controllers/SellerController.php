@@ -18,6 +18,18 @@ class SellerController extends Controller
         }
     }
 
+    public function managePS(){
+        return view('seller_side.manageps');
+    }
+
+    public function addNewItem(){
+        return view('seller_side.addnewitem');
+    }
+
+    public function updateItem(){
+        return view('seller_side.updateitem');
+    }
+
     public function switchToSeller(){
         DB::table('users')->where('id', '=', auth()->user()->id)->update(['role' => 'seller']);
         return redirect()->route('dashboard');

@@ -63,4 +63,7 @@ Route::post('/export', [\App\Http\Controllers\TransactionHistoryController::clas
 
 /*Seller Dashboard*/
 Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'dashboard'])->name('dashboard');
+Route::get('/manageps', [\App\Http\Controllers\SellerController::class, 'managePS']);
+Route::get('/add-new-item', [\App\Http\Controllers\SellerController::class, 'addNewItem']);
+Route::get('/update-item', [\App\Http\Controllers\SellerController::class, 'updateItem']);
 

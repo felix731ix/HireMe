@@ -78,7 +78,7 @@ class ProfileController extends Controller
         return redirect()->back();
     }
 
-    public function switchToSeller(){
+    public function switchToBuyer(){
         DB::table('users')->where('id', '=', auth()->user()->id)->update(['role' => 'buyer']);
         return redirect()->route('profile');
     }

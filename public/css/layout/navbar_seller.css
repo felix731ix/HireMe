@@ -127,13 +127,82 @@
     background-color: white;
     padding: 10px 16px;
     /* border-radius: 50px; */
-    color: var(--primary_green);
+    /* color: var(--primary_green); */
+    color: black;
     border: transparent;
     outline: none;
     cursor: pointer;
     width: 100%;
     white-space: nowrap;
     /* margin-top: 27px; */
+}
+
+.nav-menu:active{
+    background-color: white;
+    padding: 10px 16px;
+    /* border-radius: 50px; */
+    color: var(--primary_green);
+    /* color: black; */
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    /* margin-top: 27px; */
+}
+
+.nav-menu:hover{
+    background-color: white;
+    padding: 10px 16px;
+    /* border-radius: 50px; */
+    color: var(--primary_green);
+    transition: 0.5s;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    /* margin-top: 27px; */
+}
+
+.checked{
+    color: orange;
+}
+
+.progress-bar .bg-primary{
+    background-color: #43D06B!important;
+}
+
+.progress-barcustomized{
+    background-color: #43D06B!important;
+}
+
+.withdraw-earnings, .add-to-cart{
+    background-color: var(--primary_green);
+    width: 100px;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.withdraw-earnings:focus, .add-to-cart:focus{
+   outline: none;
+}
+
+.add-new-item, .add-to-cart{
+    background-color: var(--primary_green);
+    width: 150px;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    border-radius: 100px;
 }
 
 /* .cart-counter {
