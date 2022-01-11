@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Products;
 use App\Models\TransactionDetails;
 use App\Models\TransactionHeaders;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
@@ -88,7 +89,9 @@ class CheckoutController extends Controller
             $productID = $request->id;
             $productQuantity = $request->product_quantity;
             $seller_id = Products::where('id','=',$productID)->first()->user_id;
-            // dd($seller_id);
+            $seller_balance = User::where('id', '=', $seller_id)->first()->balance;
+
+            User::where('id', '=', $seller_id)->update(['balance' => $seller_balance + $request->total_price]);
             TransactionDetails::create([
                 'transaction_id' => $transactionHeadersID->id,
                 'seller_id' => $seller_id,
@@ -102,6 +105,9 @@ class CheckoutController extends Controller
             $cartsData = Cart::where('user_id', auth()->user()->id)->get();
             for($i=0;$i<count($cartsData);$i++){
                 $seller_id = Products::where('id','=',$cartsData[$i]->products->id)->first()->user_id;
+                $seller_balance = User::where('id', '=', $seller_id)->first()->balance;
+                User::where('id', '=', $seller_id)->update(['balance' => $seller_balance + ($cartsData[$i]->quantity * $cartsData[$i]->products->price)]);
+
                 TransactionDetails::create([
                     'transaction_id' => $transactionHeadersID->id,
                     'seller_id' => $seller_id,

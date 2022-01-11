@@ -68,9 +68,11 @@
                         @currency($balance)
                     </div>
                     <div class="3 mt-2 mb-4">
-                        <button type="submit" class="withdraw-earnings">
-                            Withdraw
-                        </button>
+                        <form action="/withdraw">
+                            <button type="submit" class="withdraw-earnings">
+                                Withdraw
+                            </button>
+                        </form>
                     </div>
                   </div>
 
@@ -93,7 +95,52 @@
                         </thead>
                         <tbody>
                         <tr>
-                        {{-- @for($i=0;$i<count($listTransaction);$i++)
+                            @for($i=0;$i<count($listTransaction);$i++)
+                                @if ($i != 0 && $listTransaction[$i]->transaction_id == $listTransaction[$i-1]->transaction_id)
+                                    @continue
+                                @else
+                                    @php
+                                        $totalPayment = 0;
+                                        $t_id = $listTransaction
+                                    @endphp
+                                @endif
+                                {{-- @php
+                                    // if ($i != 0 && $listTransaction[$i]->transaction_id == $listTransaction[$i-1]->transaction_id) {
+                                    //     continue;
+                                    // };
+                                    $totalPayment = 0;
+                                @endphp --}}
+                                <tr>
+                                    <td>{{$i+1}}</td>
+                                    <td>{{$listTransaction[$i]->created_at}}</td>
+                                    <td>
+                                        {{-- @if () --}}
+
+                                        {{-- @else --}}
+                                            @php
+                                                for($j=$i;$j<count($listTransaction);$j++){
+                                                    if ($listTransaction[$j]->transaction_id == $listTransaction[$i]->transaction_id) {
+                                                        $quantity = $listTransaction[$j]->quantity;
+                                                        $productPrice = $listTransaction[$j]->price;
+                                                        $totalPayment = $totalPayment + $quantity * $productPrice;
+                                                    }
+                                                }
+                                            @endphp
+                                        {{-- @endif --}}
+                                            @currency($totalPayment)
+                                    </td>
+                                    <td>
+                                        <form action="/export" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$listTransaction[$i]->id}}">
+                                            <button type="submit" style="border: transparent; outline: none; background-color: transparent; cursor: pointer">
+                                                <span style="font-size: 24px; background-color: var(--primary_green); color: white; padding: 3px; border-radius: 100px" class="iconify" data-icon="carbon:document-download"></span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endfor
+                                {{-- @for($i=0;$i<count($listTransaction);$i++)
                             @php
                                 $totalPayment = 0;
                             @endphp

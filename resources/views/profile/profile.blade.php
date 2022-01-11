@@ -97,8 +97,8 @@
                         @php
                             for($j=0;$j<count($listTransaction[$i]->transactionDetails);$j++){
                                 $quantity = $listTransaction[$i]->transactionDetails[$j]->quantity;
-                                 $productPrice = $listTransaction[$i]->transactionDetails[$j]->products->price;
-                                 $totalPayment = $totalPayment + $quantity * $productPrice;
+                                $productPrice = $listTransaction[$i]->transactionDetails[$j]->products->price;
+                                $totalPayment = $totalPayment + $quantity * $productPrice;
                             }
                         @endphp
                             @currency($totalPayment)

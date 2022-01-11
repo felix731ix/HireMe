@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\TransactionDetails;
+use App\Models\TransactionHeaders;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,11 +19,22 @@ class SellerController extends Controller
     }
 
     public function dashboard(){
-            // $user_id = auth()->user()->id;
             $balance = User::where('id', '=', $this->getUserId())->first()->balance;
-            // dd($balance);
+            // $transactionHistory = TransactionHeaders::all()[10]->transactionDetails;
+            // $transactionDetails = TransactionDetails::where('seller_id', '=', $this->getUserId())->get();
+            $transactionHistory = DB::table('transaction_headers')
+                                    ->join('transaction_details', 'transaction_headers.id', 'transaction_details.transaction_id')
+                                    ->join('products', 'transaction_details.product_id', 'products.id')
+                                    ->where('transaction_details.seller_id', '=', $this->getUserId())->get();
+            // dd($transactionHistory);
             return view('seller_side.dashboard')
-                ->with('balance', $balance);
+                ->with('balance', $balance)
+                ->with('listTransaction', $transactionHistory);
+    }
+
+    public function withdraw(){
+        User::where('id', '=', $this->getUserId())->update(['balance' => 0]);
+        return redirect()->route('dashboard')->with('success', 'Your balance has been withdrawn');
     }
 
     public function managePS(){

@@ -43,7 +43,7 @@
                          style="border-radius: 16px">
                     <div style="justify-content: space-between">
                         <div>
-                            <h6>NYChop</h6>
+                            <h6>{{ $carts[$i]->products->user->username }}</h6>
                             <h3>{{$carts[$i]->products->name}}</h3>
                             <h5>@currency($carts[$i]->products->price)</h5>
                         </div>

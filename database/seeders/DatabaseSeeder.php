@@ -19,7 +19,7 @@ class  DatabaseSeeder extends Seeder
             'email'=>'felix.rustan@binus.ac.id',
             'password' => Hash::make('asdfg'),
             'profile_picture' => 'profile_img_storage/default_picture.jpg',
-            'shop_name' => 'FRShop'
+            'username' => 'felixrustan123'
         ]);
 
         \DB::table('users')->insert([
@@ -27,7 +27,7 @@ class  DatabaseSeeder extends Seeder
             'email'=>'samuel.denis@binus.ac.id',
             'password' => Hash::make('asdfg'),
             'profile_picture' => 'profile_img_storage/default_picture.jpg',
-            'shop_name' => 'SDShop'
+            'username' => 'samueldenis123'
         ]);
 
         \DB::table('categories')->insert([

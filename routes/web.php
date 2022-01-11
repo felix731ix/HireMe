@@ -63,7 +63,11 @@ Route::post('/export', [\App\Http\Controllers\TransactionHistoryController::clas
 
 /*Seller Dashboard*/
 Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'dashboard'])->name('dashboard')->middleware('seller');
+Route::get('/withdraw', [\App\Http\Controllers\SellerController::class, 'withdraw'])->middleware('seller');
+
+/*Seller Products*/
 Route::get('/manageps', [\App\Http\Controllers\SellerController::class, 'managePS'])->middleware('seller');
 Route::get('/add-new-item', [\App\Http\Controllers\SellerController::class, 'addNewItem'])->middleware('seller');
 Route::get('/update-item', [\App\Http\Controllers\SellerController::class, 'updateItem'])->middleware('seller');
+
 

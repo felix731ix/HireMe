@@ -34,7 +34,7 @@ class TransactionHistoryExport implements
     public function headings(): array{
         return [
             'Product name',
-            'Seller',
+            'Shop Name',
             'Quantity',
             'Date'
         ];
@@ -43,7 +43,7 @@ class TransactionHistoryExport implements
     public function map($details): array{
         return [
             $details->products->name,
-            $details->products->user->name,
+            $details->products->user->username,
             $details->quantity,
             $details->created_at
         ];

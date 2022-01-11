@@ -31,6 +31,16 @@
                 @enderror
             </div>
             <div class="input-field-list">
+                <input type="text" name="username" class="join-sign-fullname-inputfield"
+                       id="fullname-join-field"
+                       placeholder="Username" @error('username') is-invalid
+                       @enderror value="{{old('username')}}" required>
+                @error('username')
+                <div class="error-status">{{$message}}</div>
+                @enderror
+            </div>
+
+            <div class="input-field-list">
                 <input type="email" name="email" class="join-sign-email-inputfield is-invalid" id="email-join-field"
                        placeholder="E-mail" @error('email') is-invalid
                        @enderror value="{{old('email')}}" required>
