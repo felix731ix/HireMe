@@ -17,15 +17,11 @@ class SellerController extends Controller
     }
 
     public function dashboard(){
-        if(auth()->guest() || auth()->user()->role == 'buyer'){
-            return redirect()->back();
-        }else{
             // $user_id = auth()->user()->id;
             $balance = User::where('id', '=', $this->getUserId())->first()->balance;
             // dd($balance);
             return view('seller_side.dashboard')
                 ->with('balance', $balance);
-        }
     }
 
     public function managePS(){
