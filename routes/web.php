@@ -62,8 +62,8 @@ Route::post('/update-profile', [\App\Http\Controllers\ProfileController::class, 
 Route::post('/export', [\App\Http\Controllers\TransactionHistoryController::class, 'transactionHistoryExport']);
 
 /*Seller Dashboard*/
-Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'dashboard'])->name('dashboard');
-Route::get('/manageps', [\App\Http\Controllers\SellerController::class, 'managePS']);
-Route::get('/add-new-item', [\App\Http\Controllers\SellerController::class, 'addNewItem']);
-Route::get('/update-item', [\App\Http\Controllers\SellerController::class, 'updateItem']);
+Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'dashboard'])->name('dashboard')->middleware('seller');
+Route::get('/manageps', [\App\Http\Controllers\SellerController::class, 'managePS'])->middleware('seller');
+Route::get('/add-new-item', [\App\Http\Controllers\SellerController::class, 'addNewItem'])->middleware('seller');
+Route::get('/update-item', [\App\Http\Controllers\SellerController::class, 'updateItem'])->middleware('seller');
 
