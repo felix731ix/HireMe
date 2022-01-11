@@ -61,7 +61,7 @@
                         <div>
                             @auth
                                 <span
-                                    style="font-size: 1.4rem ;font-weight: 700; padding-left: 0.8em">{{auth()->user()->shop_name}}</span>
+                                    style="font-size: 1.4rem ;font-weight: 700; padding-left: 0.8em">{{auth()->user()->username}}</span>
                             @endauth
                         </div>
                     </a>

@@ -50,7 +50,6 @@ class SellerController extends Controller
     }
 
     public function switchToSeller(){
-        DB::table('users')->where('id', '=', auth()->user()->id)->update(['role' => 'seller']);
         return redirect()->route('dashboard');
     }
 }

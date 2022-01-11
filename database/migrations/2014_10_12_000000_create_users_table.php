@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('profile_picture');
-            $table->string('role')->default('buyer');
             $table->bigInteger('balance')->default(0);
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
