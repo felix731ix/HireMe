@@ -20,13 +20,7 @@ class SellerController extends Controller
 
     public function dashboard(){
             $balance = User::where('id', '=', $this->getUserId())->first()->balance;
-            // $transactionHistory = TransactionHeaders::all()[10]->transactionDetails;
-            // $transactionDetails = TransactionDetails::where('seller_id', '=', $this->getUserId())->get();
-            $transactionHistory = DB::table('transaction_headers')
-                                    ->join('transaction_details', 'transaction_headers.id', 'transaction_details.transaction_id')
-                                    ->join('products', 'transaction_details.product_id', 'products.id')
-                                    ->where('transaction_details.seller_id', '=', $this->getUserId())->get();
-            // dd($transactionHistory);
+            $transactionHistory = TransactionHeaders::all();
             return view('seller_side.dashboard')
                 ->with('balance', $balance)
                 ->with('listTransaction', $transactionHistory);

@@ -18,4 +18,8 @@ class User extends Authenticatable
         return $this->hasMany(Products::class, 'id', 'user_id');
     }
 
+    public function transactionHeaders(){
+        return $this->hasMany(TransactionHeaders::class, 'id', 'user_id');
+    }
+
 }

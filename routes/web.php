@@ -63,7 +63,8 @@ Route::post('/export', [\App\Http\Controllers\TransactionHistoryController::clas
 
 /*Seller Dashboard*/
 Route::get('/dashboard', [\App\Http\Controllers\SellerController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-Route::get('/withdraw', [\App\Http\Controllers\SellerController::class, 'withdraw'])->middleware('seller');
+Route::get('/withdraw', [\App\Http\Controllers\SellerController::class, 'withdraw'])->middleware('auth');
+Route::post('/export-seller', [\App\Http\Controllers\TransactionHistoryController::class, 'exportSeller']);
 
 /*Seller Products*/
 Route::get('/manageps', [\App\Http\Controllers\SellerController::class, 'managePS'])->middleware('auth');

@@ -14,4 +14,8 @@ class TransactionHeaders extends Model
     public function transactionDetails(){
         return $this->hasMany(TransactionDetails::class, 'transaction_id', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

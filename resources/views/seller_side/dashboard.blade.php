@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/layout/navbar_seller.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/fontello.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/profile/profile.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/dashboard/dashboard.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @include('bootstrap')
     <title>Dashboard - Seller</title>
@@ -95,34 +96,42 @@
                         </thead>
                         <tbody>
                         <tr>
+                            @php
+                                $number = 1;
+                            @endphp
                             @for($i=0;$i<count($listTransaction);$i++)
-                                @if ($i != 0 && $listTransaction[$i]->transaction_id == $listTransaction[$i-1]->transaction_id)
-                                    @continue
-                                @else
-                                    @php
-                                        $totalPayment = 0;
-                                        $t_id = $listTransaction
-                                    @endphp
-                                @endif
-                                {{-- @php
-                                    // if ($i != 0 && $listTransaction[$i]->transaction_id == $listTransaction[$i-1]->transaction_id) {
-                                    //     continue;
-                                    // };
+                                @php
+                                    $count = 0;
+                                    for($j=0;$j<count($listTransaction[$i]->transactionDetails);$j++){
+                                        if($listTransaction[$i]->transactionDetails[$j]->seller_id == auth()->user()->id){
+                                            $count++;
+                                        }
+                                    }
                                     $totalPayment = 0;
-                                @endphp --}}
+                                @endphp
+                                @if ($count == 0)
+                                    @continue
+                                @endif
                                 <tr>
-                                    <td>{{$i+1}}</td>
+                                    <td>{{$number}}</td>
                                     <td>{{$listTransaction[$i]->created_at}}</td>
                                     <td>
                                         {{-- @if () --}}
 
                                         {{-- @else --}}
                                             @php
-                                                for($j=$i;$j<count($listTransaction);$j++){
-                                                    if ($listTransaction[$j]->transaction_id == $listTransaction[$i]->transaction_id) {
-                                                        $quantity = $listTransaction[$j]->quantity;
-                                                        $productPrice = $listTransaction[$j]->price;
-                                                        $totalPayment = $totalPayment + $quantity * $productPrice;
+                                                $number++;
+                                                for($j=0;$j<count($listTransaction[$i]->transactionDetails);$j++){
+                                                    // if ($listTransaction[$j]->transaction_id == $listTransaction[$i]->transaction_id) {
+                                                    //     $quantity = $listTransaction[$j]->quantity;
+                                                    //     $productPrice = $listTransaction[$j]->price;
+                                                    //     $totalPayment = $totalPayment + $quantity * $productPrice;
+                                                    // }
+                                                    // dd($listTransaction[2]->transactionDetails);
+                                                    if($listTransaction[$i]->transactionDetails[$j]->seller_id == auth()->user()->id){
+                                                        $quantity = $listTransaction[$i]->transactionDetails[$j]->quantity;
+                                                        $productPrice = $listTransaction[$i]->transactionDetails[$j]->products->price;
+                                                        $totalPayment = $totalPayment +  $quantity * $productPrice;
                                                     }
                                                 }
                                             @endphp
@@ -130,7 +139,7 @@
                                             @currency($totalPayment)
                                     </td>
                                     <td>
-                                        <form action="/export" method="POST">
+                                        <form action="/export-seller" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{$listTransaction[$i]->id}}">
                                             <button type="submit" style="border: transparent; outline: none; background-color: transparent; cursor: pointer">
@@ -291,5 +300,24 @@
 
         </div>
     </div>
+    @if(session()->has('success'))
+        <div id="snackbar">{{session('success')}}</div>
+    @endif
 </body>
+<script>
+
+    @if(session()->has('success'))
+    $(document).ready(function (){
+        var x = document.getElementById("snackbar");
+        x.className = "show"
+        setTimeout(function(){
+            x.className = x.className.replace("show", "");
+        }, 3000);
+    });
+    @php
+    session()->forget('success');
+    @endphp
+    @endif
+
+</script>
 </html>
