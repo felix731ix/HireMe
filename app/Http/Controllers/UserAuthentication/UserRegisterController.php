@@ -32,6 +32,7 @@ class UserRegisterController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->shop_name = substr($request->name, 0, 1).substr($request->name, strpos($request->name, ' ')+1, 1).'Shop';
         $user->profile_picture = 'profile_img_storage/default_picture.jpg';
         $user->save();
 
