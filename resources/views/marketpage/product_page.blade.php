@@ -57,7 +57,7 @@
                                 <div class="w-50 text-right">@currency($products[$i]->price)</div>
                             </div>
                             <div>
-                                <span>YTShop</span>
+                                <span>{{ $products[$i]->user->shop_name }}</span>
                             </div>
                         </div>
                     </div>
