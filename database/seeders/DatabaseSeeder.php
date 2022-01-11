@@ -18,14 +18,16 @@ class  DatabaseSeeder extends Seeder
             'name'=>'Felix Rustan',
             'email'=>'felix.rustan@binus.ac.id',
             'password' => Hash::make('asdfg'),
-            'profile_picture' => 'profile_img_storage/default_picture.jpg'
+            'profile_picture' => 'profile_img_storage/default_picture.jpg',
+            'shop_name' => 'FRShop'
         ]);
 
         \DB::table('users')->insert([
             'name'=>'Samuel Denis',
             'email'=>'samuel.denis@binus.ac.id',
             'password' => Hash::make('asdfg'),
-            'profile_picture' => 'profile_img_storage/default_picture.jpg'
+            'profile_picture' => 'profile_img_storage/default_picture.jpg',
+            'shop_name' => 'SDShop'
         ]);
 
         \DB::table('categories')->insert([
