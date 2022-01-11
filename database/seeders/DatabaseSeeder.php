@@ -21,6 +21,13 @@ class  DatabaseSeeder extends Seeder
             'profile_picture' => 'profile_img_storage/default_picture.jpg'
         ]);
 
+        \DB::table('users')->insert([
+            'name'=>'Samuel Denis',
+            'email'=>'samuel.denis@binus.ac.id',
+            'password' => Hash::make('asdfg'),
+            'profile_picture' => 'profile_img_storage/default_picture.jpg'
+        ]);
+
         \DB::table('categories')->insert([
             'name'=>'Photograph'
         ]);
@@ -39,6 +46,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'Customizeable YoutTube',
+            'user_id' => 1,
             'category_id' => 1,
             'price' => 250000,
             'description' =>
@@ -48,6 +56,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'Eiffel Tower Night Potrait',
+            'user_id' => 1,
             'category_id' => 1,
             'price' => 100000,
             'description' =>
@@ -57,6 +66,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'NYC Panorama',
+            'user_id' => 1,
             'category_id' => 1,
             'price' => 100000,
             'description' =>
@@ -66,6 +76,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'Marimba Remix Ringtone',
+            'user_id' => 1,
             'category_id' => 2,
             'price' => 60000,
             'description' =>
@@ -75,6 +86,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'Tringtone',
+            'user_id' => 1,
             'category_id' => 2,
             'price' => 55000,
             'description' =>
@@ -84,6 +96,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'Money Heist Wallpaper',
+            'user_id' => 2,
             'category_id' => 3,
             'price' => 650000,
             'description' =>
@@ -93,6 +106,7 @@ class  DatabaseSeeder extends Seeder
 
         \DB::table('products')->insert([
             'name' => 'Drone Video Footage',
+            'user_id' => 2,
             'category_id' => 4,
             'price' => 350000,
             'description' =>

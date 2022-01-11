@@ -65,7 +65,7 @@
                         Earnings
                     </div>
                     <div class="2 mt-2" style="font-weight: bold; font-size:22px">
-                        Rp 120.000
+                        @currency($balance)
                     </div>
                     <div class="3 mt-2 mb-4">
                         <button type="submit" class="withdraw-earnings">

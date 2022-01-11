@@ -28,12 +28,13 @@ class TransactionHistoryExport implements
     */
     public function collection()
     {
-        return TransactionDetails::select('product_id', 'quantity', 'created_at')->where('transaction_id', $this->id)->with('products')->get();
+        return TransactionDetails::select('product_id', 'seller_id', 'quantity', 'created_at')->where('transaction_id', $this->id)->with('products')->get();
     }
 
     public function headings(): array{
         return [
             'Product name',
+            'Seller',
             'Quantity',
             'Date'
         ];
@@ -42,6 +43,7 @@ class TransactionHistoryExport implements
     public function map($details): array{
         return [
             $details->products->name,
+            $details->products->user->name,
             $details->quantity,
             $details->created_at
         ];

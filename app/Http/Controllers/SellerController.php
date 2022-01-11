@@ -9,12 +9,22 @@ use Illuminate\Support\Facades\DB;
 
 class SellerController extends Controller
 {
-    //
+    //Global Variable
+
+    //getting auth user id
+    public function getUserId(){
+        return auth()->user()->id;
+    }
+
     public function dashboard(){
         if(auth()->guest() || auth()->user()->role == 'buyer'){
             return redirect()->back();
         }else{
-            return view('seller_side.dashboard');
+            // $user_id = auth()->user()->id;
+            $balance = User::where('id', '=', $this->getUserId())->first()->balance;
+            // dd($balance);
+            return view('seller_side.dashboard')
+                ->with('balance', $balance);
         }
     }
 

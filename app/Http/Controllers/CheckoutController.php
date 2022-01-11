@@ -85,12 +85,13 @@ class CheckoutController extends Controller
 
         /*Request from buynow*/
         if(($request->id  && $request->product_quantity && $request->total_price) != null){
-
             $productID = $request->id;
             $productQuantity = $request->product_quantity;
-
+            $seller_id = Products::where('id','=',$productID)->first()->user_id;
+            // dd($seller_id);
             TransactionDetails::create([
                 'transaction_id' => $transactionHeadersID->id,
+                'seller_id' => $seller_id,
                 'product_id'=> $productID,
                 'quantity' => $productQuantity,
             ]);
@@ -100,8 +101,10 @@ class CheckoutController extends Controller
         else{
             $cartsData = Cart::where('user_id', auth()->user()->id)->get();
             for($i=0;$i<count($cartsData);$i++){
+                $seller_id = Products::where('id','=',$cartsData[$i]->products->id)->first()->user_id;
                 TransactionDetails::create([
                     'transaction_id' => $transactionHeadersID->id,
+                    'seller_id' => $seller_id,
                     'product_id'=> $cartsData[$i]->products->id,
                     'quantity' => $cartsData[$i]->quantity,
                 ]);

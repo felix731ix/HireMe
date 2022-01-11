@@ -21,4 +21,8 @@ class Products extends Model
         return $this->belongsTo(TransactionDetails::class);
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }
