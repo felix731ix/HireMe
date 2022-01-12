@@ -5,6 +5,7 @@
     font-family: 'Inter', sans-serif !important;
     font-size: 10px;
     --primary_green: #43D06B;
+    --primary_green_second: #5dd97d;
     --red: #F66161;
     --gray_2: #C2C2C2;
     --gray_3: #DEDEDE;
@@ -110,9 +111,6 @@
     color: black;
 }
 
-.profile-menu {
-    padding-left: 3em;
-}
 
 .cart-counter {
     background-color: var(--primary_green);

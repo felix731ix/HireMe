@@ -22,9 +22,9 @@
 
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" style="color: #43D06B; font-size:14px;">Seller</a></li>
-                <li class="breadcrumb-item active" style="font-size: 14px" aria-current="page">Dashboard</li>
+            <ol class="breadcrumb" style="background-color: var(--gray_5)!important;">
+                <li class="breadcrumb-item"><a href="/switch-to-seller" style="color: var(--primary_green); font-size:1.4rem;">Seller</a></li>
+                <li class="breadcrumb-item active" style="font-size: 14px; color: var(--primary_green); font-weight: var(--weight500)" aria-current="page">Dashboard</li>
             </ol>
         </nav>
         <!-- /Breadcrumb -->
@@ -40,23 +40,20 @@
                                          width="50">
                                     <div class="d-flex flex-column">
                                         <h4 style="font-size:14px; padding: 10px 0px 0px 10px"><?php echo e(auth()->user()->name); ?></h4>
-                                        <div class="d-flex" style="font-size: 14px; padding: 0px 0px 0px 10px">
+                                        <div class="d-flex" style="font-size: 1.6rem; padding: 0px 0px 0px 10px">
                                             <span class="iconify" data-icon="bx:bx-store-alt"></span>
-                                            <h4 style="font-size: 14px; padding: 0px 0px 2px 5px"><?php echo e(auth()->user()->username); ?></h4>
+                                            <h4 style="font-size: 14px; padding: 0px 0.2em 0 0.2em; margin: 0"><?php echo e(auth()->user()->username); ?></h4>
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
-
-                            
                         </div>
                     </div>
                 </div>
                 <div class="card mt-3">
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="1 mt-3" style="font-size: 14px">
-                            Earnings
+                            Available Withdraw
                         </div>
                         <div class="2 mt-2" style="font-weight: bold; font-size:22px">
                             Rp <?php echo number_format($balance,0,',','.'); ?>

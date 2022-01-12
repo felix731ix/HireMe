@@ -1,7 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light  d-flex justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between">
     <a class="navbar-brand" href="/marketpage"><img
             src="{{\Illuminate\Support\Facades\URL::asset('asset/HireMe 1 - Black Transparent.png')}}" id="hireme-logo"></a>
-
     <form action="/marketpage/search-item" class="d-flex justify-content-between search-bar-marketplace">
         <input type="text" name="query" id="search-input" placeholder='Try "Pizza Photographer"'>
         <div>
@@ -38,7 +37,16 @@
                     <div>
                         @auth
                             <span
-                                style="font-size: 1.4rem ;font-weight: 700; padding-left: 0.8em">{{auth()->user()->name}}</span>
+                                style="
+                                    display: block;
+                                    width: 100px;
+                                    font-weight: 700;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    font-size: 1.4rem ;">
+                                {{auth()->user()->name}}
+                            </span>
                         @endauth
                     </div>
                 </a>

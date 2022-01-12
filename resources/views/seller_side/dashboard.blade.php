@@ -22,9 +22,9 @@
 
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" style="color: #43D06B; font-size:14px;">Seller</a></li>
-                <li class="breadcrumb-item active" style="font-size: 14px" aria-current="page">Dashboard</li>
+            <ol class="breadcrumb" style="background-color: var(--gray_5)!important;">
+                <li class="breadcrumb-item"><a href="/switch-to-seller" style="color: var(--primary_green); font-size:1.4rem;">Seller</a></li>
+                <li class="breadcrumb-item active" style="font-size: 14px; color: var(--primary_green); font-weight: var(--weight500)" aria-current="page">Dashboard</li>
             </ol>
         </nav>
         <!-- /Breadcrumb -->
@@ -40,47 +40,20 @@
                                          width="50">
                                     <div class="d-flex flex-column">
                                         <h4 style="font-size:14px; padding: 10px 0px 0px 10px">{{auth()->user()->name}}</h4>
-                                        <div class="d-flex" style="font-size: 14px; padding: 0px 0px 0px 10px">
+                                        <div class="d-flex" style="font-size: 1.6rem; padding: 0px 0px 0px 10px">
                                             <span class="iconify" data-icon="bx:bx-store-alt"></span>
-                                            <h4 style="font-size: 14px; padding: 0px 0px 2px 5px">{{auth()->user()->username}}</h4>
+                                            <h4 style="font-size: 14px; padding: 0px 0.2em 0 0.2em; margin: 0">{{auth()->user()->username}}</h4>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="d-flex rating" style="padding: 10px 0px 0px 10px">
-                                    <span class="fa fa-star checked" style="padding: 2px 5px 0px 0px"></span>
-                                    <h4>4.9</h4>
-                                </div> --}}
                             </div>
-
-                            {{-- <div class="mt-3">
-                                <hr>
-                                <small>Chat Response Rate</small>
-                                <div class="progress mb-3" style="height: 10px">
-                                    <div class="progress-bar " role="progressbar"
-                                         style="width: 89%; background-color: var(--primary_green) !important;"
-                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">89%
-                                    </div>
-                                </div>
-                                <small>Order Response Rate</small>
-                                <div class="progress mb-3" style="height: 10px">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 96%"
-                                         aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">96%
-                                    </div>
-                                </div>
-                                <small>Order Completion</small>
-                                <div class="progress mb-3" style="height: 10px">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                         aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">100%
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="card mt-3">
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="1 mt-3" style="font-size: 14px">
-                            Earnings
+                            Available Withdraw
                         </div>
                         <div class="2 mt-2" style="font-weight: bold; font-size:22px">
                             @currency($balance)
