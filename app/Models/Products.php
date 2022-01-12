@@ -9,20 +9,26 @@ class Products extends Model
 {
     use HasFactory;
 
-    public function cart(){
+    protected $guarded = ['id'];
+    public $timestamps = false;
+
+    public function cart()
+    {
         return $this->belongsTo(Cart::class);
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function transactionDetails(){
+    public function transactionDetails()
+    {
         return $this->belongsTo(TransactionDetails::class);
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-
 }

@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //Route
-Route::get('/', function (){
+Route::get('/', function () {
     return view('index');
-});
+})->middleware('guest');
 
 Route::get('category/{id}', [\App\Http\Controllers\ProductServiceController\ProductsController::class, 'category']);
 
@@ -30,15 +30,15 @@ Route::post('/user-login', [\App\Http\Controllers\UserAuthentication\UserLoginCo
 Route::post('logout', [\App\Http\Controllers\UserAuthentication\UserLoginController::class, 'logout']);
 
 /*Marketpage*/
-Route::get('/marketpage', [\App\Http\Controllers\ProductServiceController\ProductsController::class , 'show']);
+Route::get('/marketpage', [\App\Http\Controllers\ProductServiceController\ProductsController::class, 'show']);
 Route::get('/marketpage/search-item', [\App\Http\Controllers\ProductServiceController\ProductsController::class, 'search']);
-Route::get('/marketpage/{id}',[\App\Http\Controllers\ProductServiceController\ProductsController::class, 'productDetails']);
+Route::get('/marketpage/{id}', [\App\Http\Controllers\ProductServiceController\ProductsController::class, 'productDetails']);
 
 /*Cart*/
-Route::get('/cart',[App\Http\Controllers\CartController::class, 'cart'])->middleware('auth');
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->middleware('auth');
 Route::put('/updateProduct', [\App\Http\Controllers\CartController::class, 'updateQty']);
-Route::post('/item',[\App\Http\Controllers\CartController::class, 'addToCart']);
-Route::delete('/remove/{id}',[\App\Http\Controllers\CartController::class, 'removeFromCart']);
+Route::post('/item', [\App\Http\Controllers\CartController::class, 'addToCart']);
+Route::delete('/remove/{id}', [\App\Http\Controllers\CartController::class, 'removeFromCart']);
 
 /*Checkout From Cart, Checkout from Buy Now*/
 Route::get('/checkout', [\App\Http\Controllers\CheckoutController::class, 'checkOutViaCart'])->middleware('auth');
@@ -47,8 +47,8 @@ Route::get('/checkout-now', [\App\Http\Controllers\CheckoutController::class, 'c
 Route::get('/order-now/{id}', [\App\Http\Controllers\CheckoutController::class, 'checkOutViaOrderNow'])->middleware('auth');
 
 /*Payment*/
-Route::post('/validate-payment',[\App\Http\Controllers\CheckoutController::class, 'checkPayment']);
-Route::post('/success',[\App\Http\Controllers\CheckoutController::class, 'paymentController']);
+Route::post('/validate-payment', [\App\Http\Controllers\CheckoutController::class, 'checkPayment']);
+Route::post('/success', [\App\Http\Controllers\CheckoutController::class, 'paymentController']);
 
 /*Switch Role*/
 Route::get('/switch-to-seller', [\App\Http\Controllers\SellerController::class, 'switchToSeller'])->middleware('auth');
@@ -69,6 +69,7 @@ Route::post('/export-seller', [\App\Http\Controllers\TransactionHistoryControlle
 /*Seller Products*/
 Route::get('/manageps', [\App\Http\Controllers\SellerController::class, 'managePS'])->middleware('auth');
 Route::get('/add-new-item', [\App\Http\Controllers\SellerController::class, 'addNewItem'])->middleware('auth');
-Route::get('/update-item', [\App\Http\Controllers\SellerController::class, 'updateItem'])->middleware('auth');
-
-
+Route::post('/add-new-item', [\App\Http\Controllers\SellerController::class, 'store']);
+Route::get('/update-item/{products:id}/edit', [\App\Http\Controllers\SellerController::class, 'updateItem']);
+Route::put('/update-item/{products:id}', [\App\Http\Controllers\SellerController::class, 'update']);
+Route::delete('/remove-item/{products:id}', [\App\Http\Controllers\SellerController::class, 'destroy']);;
