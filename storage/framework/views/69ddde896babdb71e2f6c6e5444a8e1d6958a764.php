@@ -43,7 +43,7 @@
                          style="border-radius: 16px">
                     <div style="justify-content: space-between">
                         <div>
-                            <h6>NYChop</h6>
+                            <h6><?php echo e($carts[$i]->products->user->username); ?></h6>
                             <h3><?php echo e($carts[$i]->products->name); ?></h3>
                             <h5>Rp <?php echo number_format($carts[$i]->products->price,0,',','.'); ?></h5>
                         </div>

@@ -32,7 +32,7 @@
                      style="border-radius: 16px">
                 <div style="justify-content: space-between">
                     <div>
-                        <h6>NYChop</h6>
+                        <h6><?php echo e($data[0]->user->username); ?></h6>
                         <h3><?php echo e($data[0]->name); ?></h3>
                         <h5>Rp <?php echo number_format($data[0]->price,0,',','.'); ?></h5>
                     </div>

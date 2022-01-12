@@ -118,8 +118,8 @@ unset($__errorArgs, $__bag); ?>
                         <?php
                             for($j=0;$j<count($listTransaction[$i]->transactionDetails);$j++){
                                 $quantity = $listTransaction[$i]->transactionDetails[$j]->quantity;
-                                 $productPrice = $listTransaction[$i]->transactionDetails[$j]->products->price;
-                                 $totalPayment = $quantity * $productPrice;
+                                $productPrice = $listTransaction[$i]->transactionDetails[$j]->products->price;
+                                $totalPayment = $totalPayment + $quantity * $productPrice;
                             }
                         ?>
                             Rp <?php echo number_format($totalPayment,0,',','.'); ?>

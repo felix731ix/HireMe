@@ -11,11 +11,12 @@
 
     <div class="sign-join" style="font-size: 1.6rem">
         <a class="login-now" id="login-now" href="/user-login"
-        style="text-decoration: none; color: black; padding: 8px 16px; margin-right: 32px; border-radius: 100px; border: solid 1px black"
+           style="text-decoration: none; color: black; padding: 8px 16px; margin-right: 32px; border-radius: 100px; border: solid 1px black"
         >
             Sign in
         </a>
-        <a class="join-now" id="join-now" href="/user-register" style="padding: 8px 16px; color: white; background-color: black; border-radius: 100px; text-decoration: none">
+        <a class="join-now" id="join-now" href="/user-register"
+           style="padding: 8px 16px; color: white; background-color: black; border-radius: 100px; text-decoration: none">
             Join Now
         </a>
     </div>
@@ -24,8 +25,8 @@
 <nav class="navbar d-flex justify-content-center category-navbar">
     <ul>
         <?php for($i=0;$i<count($categories);$i++): ?>
-        <li><a href="/category/<?php echo e($categories[$i]->id); ?>" class="category-link"><?php echo e($categories[$i]->name); ?></a></li>
-            <?php endfor; ?>
+            <li><a href="/category/<?php echo e($categories[$i]->id); ?>" class="category-link"><?php echo e($categories[$i]->name); ?></a></li>
+        <?php endfor; ?>
     </ul>
 </nav>
 <?php /**PATH C:\xampp\htdocs\HireMe\resources\views/layout/navbar_marketplace.blade.php ENDPATH**/ ?>

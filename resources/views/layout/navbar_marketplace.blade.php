@@ -11,11 +11,12 @@
 
     <div class="sign-join" style="font-size: 1.6rem">
         <a class="login-now" id="login-now" href="/user-login"
-        style="text-decoration: none; color: black; padding: 8px 16px; margin-right: 32px; border-radius: 100px; border: solid 1px black"
+           style="text-decoration: none; color: black; padding: 8px 16px; margin-right: 32px; border-radius: 100px; border: solid 1px black"
         >
             Sign in
         </a>
-        <a class="join-now" id="join-now" href="/user-register" style="padding: 8px 16px; color: white; background-color: black; border-radius: 100px; text-decoration: none">
+        <a class="join-now" id="join-now" href="/user-register"
+           style="padding: 8px 16px; color: white; background-color: black; border-radius: 100px; text-decoration: none">
             Join Now
         </a>
     </div>
@@ -24,7 +25,7 @@
 <nav class="navbar d-flex justify-content-center category-navbar">
     <ul>
         @for($i=0;$i<count($categories);$i++)
-        <li><a href="/category/{{$categories[$i]->id}}" class="category-link">{{$categories[$i]->name}}</a></li>
-            @endfor
+            <li><a href="/category/{{$categories[$i]->id}}" class="category-link">{{$categories[$i]->name}}</a></li>
+        @endfor
     </ul>
 </nav>

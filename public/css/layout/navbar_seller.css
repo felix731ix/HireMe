@@ -100,16 +100,9 @@
 }
 
 .btnSwitchRole{
-    background-color: white;
-    padding: 10px 16px;
-    /* border-radius: 50px; */
     color: var(--primary_green);
-    border: transparent;
-    outline: none;
     cursor: pointer;
-    width: 100%;
     white-space: nowrap;
-    /* margin-top: 27px; */
 }
 
 .profile-menu {

@@ -5,13 +5,13 @@
     font-family: 'Inter', sans-serif !important;
     font-size: 10px;
     --primary_green: #43D06B;
-    --red:#F66161;
+    --red: #F66161;
     --gray_2: #C2C2C2;
     --gray_3: #DEDEDE;
     --gray_4: #F0F0F0;
     --gray_5: #F5F5F5;
 
-    --weight700 : 700;
+    --weight700: 700;
     --weight500: 500;
     --weight400: 400;
 }
@@ -27,7 +27,7 @@
 }
 
 .navbar {
-    /* padding: 16px 126px !important; */
+    padding: 16px 126px !important;
     min-height: 120px !important;
     background-color: white !important;
     border-bottom: solid 1px var(--gray_3);
@@ -83,8 +83,8 @@
 
 .cart-menu {
     align-items: center;
-    padding-right: 3em;
-    /* border-right: solid 1px var(--gray_3); */
+    padding: 0 2em 0 2em;
+    border-left: solid 1px var(--gray_3);
 }
 
 .btn-role {
@@ -94,20 +94,18 @@
     border-right: solid 1px var(--gray_3);
 }
 
-.btnSwitchRole{
+.btnSwitchRole, .btnSwitchRole:focus{
     background-color: white;
     padding: 10px 16px;
-    /* border-radius: 50px; */
     color: var(--primary_green);
-    border: transparent;
+    border: none;
     outline: none;
     cursor: pointer;
     width: 100%;
     white-space: nowrap;
-    /* margin-top: 27px; */
 }
 
-.cart-menu a, .cart-menu a:hover{
+.cart-menu a, .cart-menu a:hover {
     text-decoration: none;
     color: black;
 }
@@ -135,34 +133,34 @@
     overflow: hidden;
 }
 
-.market-type{
+.market-type {
     padding: 1em 170px;
 }
 
-#product{
+#product {
     margin-right: 2em;
 }
 
-.active, .disable{
+.active, .disable {
     border-bottom: solid 1.5px var(--primary_green);
     padding-bottom: .5rem;
     cursor: pointer;
 }
 
-.disable{
+.disable {
     border-bottom: solid 1.5px var(--gray_2);
 }
 
-.active span, .disable span{
+.active span, .disable span {
     padding: 0 0.5em;
 }
 
-.active .iconify, .disable .iconify{
+.active .iconify, .disable .iconify {
     font-size: 2.4rem;
     color: var(--primary_green);
 }
 
-.active span, .disable span{
+.active span, .disable span {
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--primary_green);
@@ -170,40 +168,41 @@
 
 }
 
-.disable span{
+.disable span {
     color: var(--gray_2);
     font-weight: normal;
 }
-.disable span, .disable .iconify{
+
+.disable span, .disable .iconify {
     color: var(--gray_2);
 }
 
-.cards{
+.cards {
     overflow: hidden;
     max-width: 270px;
 }
 
 
-.cards img{
+.cards img {
     text-align: center;
 }
 
-.row-cards{
+.row-cards {
     padding: 0 170px;
     margin: 4em 0;
 }
 
-.cards-details{
+.cards-details {
     font-size: 1.6rem;
     font-weight: 700;
     margin-top: 1em;
 }
 
-.cards-details div:last-child{
+.cards-details div:last-child {
     font-weight: 400;
 }
 
-.order-item, .add-to-cart{
+.order-item, .add-to-cart {
     background-color: var(--primary_green);
     width: 100%;
     padding: 10px;
@@ -215,59 +214,60 @@
     border-radius: 100px;
 }
 
-.order-item:focus, .add-to-cart:focus{
-   outline: none;
+.order-item:focus, .add-to-cart:focus {
+    outline: none;
 }
 
 
-.add-to-cart{
+.add-to-cart {
     background-color: white;
     color: var(--primary_green);
     align-items: center !important;
 }
 
-.add-to-cart span{
+.add-to-cart span {
     font-size: 2.4rem;
 }
 
-.nav-item div :hover{
+.nav-item div :hover {
     text-decoration: underline;
 
 }
-.nav-item div{
+
+.nav-item div {
     color: black !important;
 }
 
-.dropdown-menu li{
+.dropdown-menu li {
     font-size: 1.4rem;
     width: 7vw;
     outline: transparent;
 }
 
-.dropdown-item:focus{
+.dropdown-item:focus {
     outline: transparent;
     background-color: var(--gray_5) !important;
     color: black !important;
 }
 
-.category-navbar{
+.category-navbar {
     font-size: 1.6rem;
     color: black;
     min-height: 60px !important;
 }
 
-.category-navbar ul{
+.category-navbar ul {
     display: flex;
     padding: 0;
     margin: 0;
 }
 
-.category-navbar ul li{
+.category-navbar ul li {
     list-style-type: none;
     margin: 0 24px;
 }
 
-.category-link, .category-link:hover{
+.category-link, .category-link:hover {
     cursor: pointer;
     text-decoration: none;
     color: black;

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{URL::asset('css/layout/navbar_marketplace.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/fontello.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/checkout/cart.css')}}">
     @include('bootstrap')
     <title>Marketpage</title>
 </head>
@@ -28,53 +29,61 @@
         <span class="iconify" data-icon="ci:bulb"></span>
         <span>Products & Services</span>
     </div>
-
-{{--    <div class="disable d-flex align-items-center" id="service" onclick="changeClass(this, this.id)">--}}
-{{--        <span class="iconify" data-icon="octicon:package-24"></span>--}}
-{{--        <span>Services</span>--}}
-{{--    </div>--}}
 </div>
 
 
 <section class="row-cards">
-    @php
-        $counter = 0;
-        $productCounter = 0;
-        $remainingProduct = count($products);
-    @endphp
-    @for($j=0;$j<3;$j++)
-        <div class="row mt-5">
-            @for($i=$counter;$i<count($products); $i++)
-                @if($productCounter <5)
-                    <div class="cards col-md-auto">
-                        <a href="/marketpage/{{$products[$i]->id}}">
-                            <img src="{{Storage::url($products[$i]->image)}}" width="280px"
-                                 height="270px" style="border-radius: 16px; object-fit: cover; align-items: center">
-                        </a>
-                        <div class="cards-details">
-                            <div class="d-flex justify-content-between cards-details">
-                                <div class="flex-shrink-1">{{$products[$i]->name}}</div>
-                                <div class="w-50 text-right">@currency($products[$i]->price)</div>
-                            </div>
-                            <div>
-                                <span>{{ $products[$i]->user->username }}</span>
+    @if(count($products) <= 0)
+        <section class="container" style="text-align: center">
+            <img src="{{URL::asset('asset/Illustrations/no_results_found.svg')}}" width="364px" height="364px">
+            <div>
+                <h2 style="margin-top: 1rem; font-weight: var(--weight700)">Oops, product not found</h2>
+                <h4 style="margin:1rem 0 1rem 0; font-weight: var(--weight400)">Let's try another keywoard</h4>
+                <form ACTION="/marketpage">
+                    <button class="btnMarket">Change keyword</button>
+                </form>
+            </div>
+        </section>
+    @else
+        @php
+            $counter = 0;
+            $productCounter = 0;
+            $remainingProduct = count($products);
+        @endphp
+        @for($j=0;$j<3;$j++)
+            <div class="row mt-5">
+                @for($i=$counter;$i<count($products); $i++)
+                    @if($productCounter <5)
+                        <div class="cards col-md-auto">
+                            <a href="/marketpage/{{$products[$i]->id}}">
+                                <img src="{{Storage::url($products[$i]->image)}}" width="280px"
+                                     height="270px" style="border-radius: 16px; object-fit: cover; align-items: center">
+                            </a>
+                            <div class="cards-details">
+                                <div class="d-flex justify-content-between cards-details">
+                                    <div class="flex-shrink-1">{{$products[$i]->name}}</div>
+                                    <div class="w-50 text-right">@currency($products[$i]->price)</div>
+                                </div>
+                                <div>
+                                    <span>{{ $products[$i]->user->username }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @php
-                        $counter++;
-                        $productCounter++;
-                    @endphp
-                @else
-                    @break
-                @endif
-            @endfor
-        </div>
-        @php
-            $remainingProduct = $remainingProduct -  $productCounter;
-            $productCounter = 0;
-        @endphp
-    @endfor
+                        @php
+                            $counter++;
+                            $productCounter++;
+                        @endphp
+                    @else
+                        @break
+                    @endif
+                @endfor
+            </div>
+            @php
+                $remainingProduct = $remainingProduct -  $productCounter;
+                $productCounter = 0;
+            @endphp
+        @endfor
+    @endif
 </section>
 
 

@@ -37,16 +37,6 @@ class UserRegisterController extends Controller
         $user->profile_picture = 'profile_img_storage/default_picture.jpg';
         $user->save();
 
-
-//        $validatedData = $request->validate([
-//            'name' => 'required',
-//            'email' => 'required|email|unique:users',
-//            'password'=> 'required|min:5|max:255'
-//        ]);
-//
-//        $validatedData['password'] = Hash::make($validatedData['password']);
-//        User::create($validatedData);
-
         return redirect('/user-login')->with('success','Registration successfull! Please login');
     }
 
