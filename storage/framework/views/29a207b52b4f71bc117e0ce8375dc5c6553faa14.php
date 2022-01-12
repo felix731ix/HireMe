@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo e(URL::asset('css/layout/navbar_marketplace.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(URL::asset('css/fontello.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('css/checkout/cart.css')); ?>">
     <?php echo $__env->make('bootstrap', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <title>Marketpage</title>
 </head>
@@ -28,53 +29,61 @@
         <span class="iconify" data-icon="ci:bulb"></span>
         <span>Products & Services</span>
     </div>
-
-
-
-
-
 </div>
 
 
 <section class="row-cards">
-    <?php
-        $counter = 0;
-        $productCounter = 0;
-        $remainingProduct = count($products);
-    ?>
-    <?php for($j=0;$j<3;$j++): ?>
-        <div class="row mt-5">
-            <?php for($i=$counter;$i<count($products); $i++): ?>
-                <?php if($productCounter <5): ?>
-                    <div class="cards col-md-auto">
-                        <a href="/marketpage/<?php echo e($products[$i]->id); ?>">
-                            <img src="<?php echo e(Storage::url($products[$i]->image)); ?>" width="280px"
-                                 height="270px" style="border-radius: 16px; object-fit: cover; align-items: center">
-                        </a>
-                        <div class="cards-details">
-                            <div class="d-flex justify-content-between cards-details">
-                                <div class="flex-shrink-1"><?php echo e($products[$i]->name); ?></div>
-                                <div class="w-50 text-right">Rp <?php echo number_format($products[$i]->price,0,',','.'); ?></div>
-                            </div>
-                            <div>
-                                <span>YTShop</span>
+    <?php if(count($products) <= 0): ?>
+        <section class="container" style="text-align: center">
+            <img src="<?php echo e(URL::asset('asset/Illustrations/no_results_found.svg')); ?>" width="364px" height="364px">
+            <div>
+                <h2 style="margin-top: 1rem; font-weight: var(--weight700)">Oops, product not found</h2>
+                <h4 style="margin:1rem 0 1rem 0; font-weight: var(--weight400)">Let's try another keywoard</h4>
+                <form ACTION="/marketpage">
+                    <button class="btnMarket">Change keyword</button>
+                </form>
+            </div>
+        </section>
+    <?php else: ?>
+        <?php
+            $counter = 0;
+            $productCounter = 0;
+            $remainingProduct = count($products);
+        ?>
+        <?php for($j=0;$j<3;$j++): ?>
+            <div class="row mt-5">
+                <?php for($i=$counter;$i<count($products); $i++): ?>
+                    <?php if($productCounter <5): ?>
+                        <div class="cards col-md-auto">
+                            <a href="/marketpage/<?php echo e($products[$i]->id); ?>">
+                                <img src="<?php echo e(Storage::url($products[$i]->image)); ?>" width="280px"
+                                     height="270px" style="border-radius: 16px; object-fit: cover; align-items: center">
+                            </a>
+                            <div class="cards-details">
+                                <div class="d-flex justify-content-between cards-details">
+                                    <div class="flex-shrink-1"><?php echo e($products[$i]->name); ?></div>
+                                    <div class="w-50 text-right">Rp <?php echo number_format($products[$i]->price,0,',','.'); ?></div>
+                                </div>
+                                <div>
+                                    <span><?php echo e($products[$i]->user->username); ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
-                        $counter++;
-                        $productCounter++;
-                    ?>
-                <?php else: ?>
-                    <?php break; ?>
-                <?php endif; ?>
-            <?php endfor; ?>
-        </div>
-        <?php
-            $remainingProduct = $remainingProduct -  $productCounter;
-            $productCounter = 0;
-        ?>
-    <?php endfor; ?>
+                        <?php
+                            $counter++;
+                            $productCounter++;
+                        ?>
+                    <?php else: ?>
+                        <?php break; ?>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </div>
+            <?php
+                $remainingProduct = $remainingProduct -  $productCounter;
+                $productCounter = 0;
+            ?>
+        <?php endfor; ?>
+    <?php endif; ?>
 </section>
 
 

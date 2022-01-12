@@ -45,6 +45,30 @@ endif;
 unset($__errorArgs, $__bag); ?>
             </div>
             <div class="input-field-list">
+                <input type="text" name="username" class="join-sign-fullname-inputfield"
+                       id="fullname-join-field"
+                       placeholder="Username" <?php $__errorArgs = ['username'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid
+                       <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> value="<?php echo e(old('username')); ?>" required>
+                <?php $__errorArgs = ['username'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="error-status"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+            </div>
+
+            <div class="input-field-list">
                 <input type="email" name="email" class="join-sign-email-inputfield is-invalid" id="email-join-field"
                        placeholder="E-mail" <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

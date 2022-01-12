@@ -1,28 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-light  d-flex justify-content-between">
     <div class="d-flex justify-content-between align-items-center align-middle">
-        <a class="navbar-brand" href="/marketpage"><img
+        <a class="navbar-brand mr-5" href="/marketpage"><img
             src="<?php echo e(\Illuminate\Support\Facades\URL::asset('asset/HireMe 1 - Black Transparent.png')); ?>" id="hireme-logo">
         </a>
+
         <div class="nav-item d-flex align-middle" style="align-items: center">
-            <a href="/dashboard" class="nav-link d-flex flex-fill align-items-center font-weight-bold" style="cursor: pointer">
-                
-                <div class="nav-menu" style="font-size: 1.4rem">Dashboard</div>
+            <a href="/dashboard" class="nav-link d-flex flex-fill align-items-center" style="cursor: pointer">
+                <div style="font-size: 1.4rem; color: black">Dashboard</div>
              </a>
-             <a href="/manageps" class="nav-link d-flex flex-fill align-items-center font-weight-bold" style="cursor: pointer">
-                
-                <div class="nav-menu" style="font-size: 1.4rem">Manage Products & Services</div>
+             <a href="/manageps" class="nav-link d-flex flex-fill align-items-center" style="cursor: pointer">
+                <div class="" style="font-size: 1.4rem; color: black">Manage Products & Services</div>
              </a>
-             
         </div>
     </div>
 
-
-    
-
-    
         <div class="d-flex justify-content-between align-items-center align-middle">
             <div class="btn-role d-flex align-middle" style="align-items: center">
-                
                  <form action="/switch-to-buyer" class="d-flex flex-fill align-items-center">
                     <button class="btnSwitchRole font-weight-bold" style="font-size: 1.4rem" type="submit">Switch to Buyer</button>
                 </form>
@@ -43,10 +36,10 @@
                  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
                 "
                         >
-                        <div>
+                        <div style="color: black">
                             <?php if(auth()->guard()->check()): ?>
                                 <span
-                                    style="font-size: 1.4rem ;font-weight: 700; padding-left: 0.8em"><?php echo e(auth()->user()->name); ?></span>
+                                    style="font-size: 1.4rem ;font-weight: 700; padding-left: 0.8em"><?php echo e(auth()->user()->username); ?></span>
                             <?php endif; ?>
                         </div>
                     </a>
@@ -69,6 +62,4 @@
         </div>
     </div>
 </nav>
-
-
 <?php /**PATH C:\xampp\htdocs\finalprojectreinert\HireMe\resources\views/layout/navbar_seller.blade.php ENDPATH**/ ?>
