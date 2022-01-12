@@ -23,11 +23,11 @@ class  DatabaseSeeder extends Seeder
         ]);
 
         \DB::table('users')->insert([
-            'name'=>'Samuel Denis',
-            'email'=>'samuel.denis@binus.ac.id',
+            'name'=>'Samuel Dennis',
+            'email'=>'samuel.dennis@binus.ac.id',
             'password' => Hash::make('asdfg'),
             'profile_picture' => 'profile_img_storage/default_picture.jpg',
-            'username' => 'samueldenis123'
+            'username' => 'samueldennis123'
         ]);
 
         \DB::table('categories')->insert([

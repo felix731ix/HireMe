@@ -99,9 +99,14 @@
     border-right: solid 1px var(--gray_3);
 }
 
-.btnSwitchRole{
+.btnSwitchRole, .btnSwitchRole:focus{
+    background-color: white;
+    padding: 10px 16px;
     color: var(--primary_green);
+    border: none;
+    outline: none;
     cursor: pointer;
+    width: 100%;
     white-space: nowrap;
 }
 
@@ -196,6 +201,12 @@
     border-radius: 8px;
     cursor: pointer;
     border-radius: 100px;
+}
+
+.dropdown-menu li{
+    font-size: 1.4rem;
+    width: 7vw;
+    outline: transparent;
 }
 
 /* .cart-counter {

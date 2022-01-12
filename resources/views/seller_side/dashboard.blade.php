@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{URL::asset('css/profile/profile.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/dashboard/dashboard.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
+    integrity='sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=='
+    crossorigin='anonymous' />
     @include('bootstrap')
     <title>Dashboard - Seller</title>
 </head>
@@ -20,8 +23,8 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" style="color: #43D06B; font-size:12px;">Seller</a></li>
-                <li class="breadcrumb-item active" style="font-size: 12px" aria-current="page">Dashboard</li>
+                <li class="breadcrumb-item"><a href="#" style="color: #43D06B; font-size:14px;">Seller</a></li>
+                <li class="breadcrumb-item active" style="font-size: 14px" aria-current="page">Dashboard</li>
             </ol>
         </nav>
         <!-- /Breadcrumb -->
@@ -35,15 +38,21 @@
                                 <div class="d-flex align-items-center">
                                     <img src="{{Storage::url(auth()->user()->profile_picture)}}" class="rounded-circle"
                                          width="50">
-                                    <h4 style="padding: 10px 0px 0px 10px">{{auth()->user()->name}}</h4>
+                                    <div class="d-flex flex-column">
+                                        <h4 style="font-size:14px; padding: 10px 0px 0px 10px">{{auth()->user()->name}}</h4>
+                                        <div class="d-flex" style="font-size: 14px; padding: 0px 0px 0px 10px">
+                                            <span class="iconify" data-icon="bx:bx-store-alt"></span>
+                                            <h4 style="font-size: 14px; padding: 0px 0px 2px 5px">{{auth()->user()->username}}</h4>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="d-flex rating" style="padding: 10px 0px 0px 10px">
+                                {{-- <div class="d-flex rating" style="padding: 10px 0px 0px 10px">
                                     <span class="fa fa-star checked" style="padding: 2px 5px 0px 0px"></span>
                                     <h4>4.9</h4>
-                                </div>
+                                </div> --}}
                             </div>
 
-                            <div class="mt-3">
+                            {{-- <div class="mt-3">
                                 <hr>
                                 <small>Chat Response Rate</small>
                                 <div class="progress mb-3" style="height: 10px">
@@ -64,13 +73,13 @@
                                          aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">100%
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="card mt-3">
                     <div class="d-flex flex-column align-items-center text-center">
-                        <div class="1 mt-3" style="font-size: 12px">
+                        <div class="1 mt-3" style="font-size: 14px">
                             Earnings
                         </div>
                         <div class="2 mt-2" style="font-weight: bold; font-size:22px">

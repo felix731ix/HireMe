@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light  d-flex justify-content-between">
     <div class="d-flex justify-content-between align-items-center align-middle">
-        <a class="navbar-brand" href="/marketpage"><img
+        <a class="navbar-brand mr-5" href="/marketpage"><img
             src="<?php echo e(\Illuminate\Support\Facades\URL::asset('asset/HireMe 1 - Black Transparent.png')); ?>" id="hireme-logo">
         </a>
         <div class="nav-item d-flex align-middle" style="align-items: center">
