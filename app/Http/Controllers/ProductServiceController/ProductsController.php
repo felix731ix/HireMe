@@ -6,13 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
 
     public function show()
     {
-        $products = Products::where('user_id', "!=", auth()->user()->id)->get();
+        if(Auth::check()){
+            $products = Products::where('user_id', "!=", auth()->user()->id)->get();
+        }
+        else{
+            $products = Products::all();
+        }
+
         $categories = Category::all();
 
         return view('marketpage/product_page')->with('products', $products)->with('categories', $categories);
@@ -20,10 +27,17 @@ class ProductsController extends Controller
 
     public function category($id)
     {
-        $products =
-            Products::where('user_id', "!=", auth()->user()->id)
-            ->where('category_id', $id)
-            ->get();
+        if(Auth::check()){
+            $products =
+                Products::where('user_id', "!=", auth()->user()->id)
+                    ->where('category_id', $id)
+                    ->get();
+        }
+        else{
+            $products =
+                Products::where('category_id', $id)->get();
+        }
+
         $categories = Category::all();
         return view('marketpage/product_page')->with('products', $products)->with('categories', $categories);
     }
@@ -32,10 +46,18 @@ class ProductsController extends Controller
     {
         $searchQuery = $request->query('query');
         $categories = Category::all();
-        $products = Products::where('name', "LIKE", "%$searchQuery%")
-            ->where('user_id', '!=', auth()->user()->id)
-            ->paginate()
-            ->appends(['q' => $searchQuery]);
+
+        if (Auth::check()) {
+            $products = Products::where('name', "LIKE", "%$searchQuery%")
+                ->where('user_id', '!=', auth()->user()->id)
+                ->paginate()
+                ->appends(['q' => $searchQuery]);
+        } else {
+            $products = Products::where('name', "LIKE", "%$searchQuery%")
+                ->paginate()
+                ->appends(['q' => $searchQuery]);
+        }
+
         return view('marketpage/product_page')->with('products', $products)->with('categories', $categories);
     }
 

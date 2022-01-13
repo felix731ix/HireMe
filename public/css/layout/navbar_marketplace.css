@@ -5,7 +5,7 @@
     font-family: 'Inter', sans-serif !important;
     font-size: 10px;
     --primary_green: #43D06B;
-    --primary_green_second: #5dd97d;
+    --primary_green_second: rgba(67, 208, 107, 0.6);
     --red: #F66161;
     --gray_2: #C2C2C2;
     --gray_3: #DEDEDE;

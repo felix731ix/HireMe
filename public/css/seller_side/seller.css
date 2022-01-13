@@ -5,7 +5,7 @@
     font-family: 'Inter', sans-serif !important;
     font-size: 10px;
     --primary_green: #43D06B;
-    --primary_green_second: #5dd97d;
+    --primary_green_second: rgba(67, 208, 107, 0.6);
     --red: #F66161;
     --gray_2: #C2C2C2;
     --gray_3: #DEDEDE;
@@ -25,7 +25,7 @@
 .form-control-custom{
     display: block;
     width: 100%;
-    padding: 0.375rem 0.75rem;
+    padding: 12px 16px;
     font-size: 14px;
     line-height: 1.5;
     color: black;
@@ -40,3 +40,4 @@
     outline: none;
     border: 1px solid #43D06B;
 }
+

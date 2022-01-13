@@ -74,6 +74,7 @@ class SellerController extends Controller
             'image' => 'required|image',
         ]);
 
+
         if ($request->file('image')) {
             // $validatedData['image'] = $request->file('image')->store('public/product_img_storage');
             $file = $request->file('image');

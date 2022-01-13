@@ -27,7 +27,7 @@ Route::get('/user-login', [\App\Http\Controllers\UserAuthentication\UserLoginCon
 Route::get('/user-register', [\App\Http\Controllers\UserAuthentication\UserRegisterController::class, 'register'])->middleware('guest');
 Route::post('/user-register', [\App\Http\Controllers\UserAuthentication\UserRegisterController::class, 'store']);
 Route::post('/user-login', [\App\Http\Controllers\UserAuthentication\UserLoginController::class, 'authenticate']);
-Route::post('logout', [\App\Http\Controllers\UserAuthentication\UserLoginController::class, 'logout']);
+Route::post('logout', [\App\Http\Controllers\UserAuthentication\UserLoginController::class, 'logout'])->middleware('auth');
 
 /*Marketpage*/
 Route::get('/marketpage', [\App\Http\Controllers\ProductServiceController\ProductsController::class, 'show']);

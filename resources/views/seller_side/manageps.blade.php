@@ -20,11 +20,11 @@
 
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
-                <ol class="breadcrumb" style="background-color: var(--gray_5)!important;">
+                <ol class="breadcrumb" style="background-color: transparent!important;">
                     <li class="breadcrumb-item"><a href="/switch-to-seller"
-                            style="color: var(--primary_green); font-size:1.4rem;">Seller</a></li>
+                            style="color: var(--primary_green_second); font-size:1.4rem;">Seller</a></li>
                     <li class="breadcrumb-item active"
-                        style="font-size: 14px; color: var(--primary_green); font-weight: var(--weight500)"
+                        style="font-size: 14px; color: var(--primary_green)"
                         aria-current="page">Manage Products &
                         Services
                     </li>
@@ -61,7 +61,7 @@
                         <td style="padding: 20px; vertical-align: top; padding-top: 2.5em">
                             {{ $loop->index + 1 }}
                         </td>
-                        <td style="text-align: start; padding: 20px; width: 50%">
+                        <td style="text-align: start; padding: 20px; width: 30%">
                             <a href="/marketpage/{{ $product->id }}" style="color: black; display: flex">
                                 <div>
                                     <img src="/storage/{{ $product->image }}" width="56px" height="56px"
@@ -72,7 +72,7 @@
                                 </div>
                             </a>
                         </td>
-                        <td style="padding-top: 2em">
+                        <td style="padding-top: 2em" width="15%">
                             {{ $product->category->name }}
                         </td>
                         <td style="padding-top: 2em" width="20%">

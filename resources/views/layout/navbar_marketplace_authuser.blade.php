@@ -44,7 +44,8 @@
                                     overflow: hidden;
                                     white-space: nowrap;
                                     text-overflow: ellipsis;
-                                    font-size: 1.4rem ;">
+                                    font-size: 1.4rem ;
+                                    padding-left:1em">
                                 {{auth()->user()->name}}
                             </span>
                         @endauth
@@ -60,7 +61,6 @@
                                 Logout
                             </button>
                         </form>
-
                     </li>
                 </ul>
             </li>

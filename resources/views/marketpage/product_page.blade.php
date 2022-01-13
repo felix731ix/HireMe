@@ -53,7 +53,7 @@
         @for($j=0;$j<3;$j++)
             <div class="row mt-5">
                 @for($i=$counter;$i<count($products); $i++)
-                    @if($productCounter <5)
+                    @if($productCounter < 3)
                         <div class="cards col-md-auto">
                             <a href="/marketpage/{{$products[$i]->id}}">
                                 <img src="{{Storage::url($products[$i]->image)}}" width="280px"

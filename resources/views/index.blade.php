@@ -14,7 +14,7 @@
 <body>
 @auth
     @include('layout/navbar_home_authuser')
-    @else
+@else
     @include('layout/navbar_home')
 @endauth
 <div class="banner-outter">
@@ -43,7 +43,7 @@
         <h2>Explore the market</h2>
         <div class="explore-item row">
             <div class="item col-md-3">
-                <a href="https://google.com">
+                <a href="/category/1">
                     <div class="item-image">
                         <img src="/asset/Photograph.png" alt="">
                     </div>
@@ -56,7 +56,7 @@
 
             </div>
             <div class="item col-md-3">
-                <a href="https://google.com">
+                <a href="/category/2">
                     <div class="item-image">
                         <img src="/asset/Lifestyle.png" alt="">
                     </div>
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <div class="item col-md-3">
-                <a href="https://google.com">
+                <a href="/category/3">
                     <div class="item-image">
                         <img src="asset/Graphics & Design.png" alt="">
                     </div>
@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="item col-md-3">
-                <a href="https://google.com">
+                <a href="/category/4">
                     <div class="item-image">
                         <img src="asset/Video & Animation.png" alt="">
                     </div>
@@ -97,7 +97,7 @@
 <div class="why-us-outter">
     <div class="why-us">
         <div class="why-us-image">
-            <img src="asset/why-us.png" alt="" width="666px" height="478px">
+            <img src="asset/why-us.png" alt="" width="466px" height="278px" style="object-fit: cover; border-radius: 16px">
         </div>
         <div class="why-us-description">
             <h1 class="why-us-title">We bring the freelance products and services into your screen</h1>
@@ -146,106 +146,5 @@
         </div>
     </div>
 </div>
-
-<!-- Outter Modal -->
-<div class="modal-join-sign-hireme" id="modalJoinHireme">
-    <!-- Inside Modal -->
-    <div class="modal-join-sign-content">
-        <div class="modal-join-header">
-            <i class="icon-close icon-hidden"></i>
-            <div id="span-modal-header">Join HireMe</div>
-            <i class="icon-close icon-active" id="icon-active-join"></i>
-        </div>
-        <div class="form-join-sign">
-            <form action="/register" method="post" name="registerForm" class="register-form">
-            @csrf
-            <!-- name berguna untuk parsing di URL QueryParam -->
-                <div>
-                    <input type="email" name="email" class="join-sign-email-inputfield" id="email-join-field"
-                           placeholder="E-mail" @error('email') is-invalid
-                           @enderror value="{{old('email')}}" required>
-                    @error("email")
-                    <div id="join-email-error" class="join-email-error invalid-feedback"> {{$message}}</div>
-                    @enderror
-                </div>
-                <div>
-                    <input type="password" name="password" class="join-sign-pass-inputfield" id="pass-join-field"
-                           placeholder="Password" @error('password') is-invalid
-                           @enderror required>
-                    @error("password")
-                    <div id="join-pass-error" class="join-pass-error invalid-feedback">{{$message}} </div>
-                    @enderror
-                </div>
-                <button type="submit" id="join-submit" class="join-sign-up">Sign Up</button>
-            </form>
-            <div class="already-have-account">
-                <span>Already have an account?</span> <span id="switch-login">Login here</span>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-<!-- Outter Modal -->
-<div class="modal-join-sign-hireme" id="modalLoginHireme">
-    <!-- Inside Modal -->
-    <div class="modal-join-sign-content">
-        <div class="modal-join-header">
-            <i class="icon-close icon-hidden"></i>
-            <div id="span-modal-header">Login HireMe</div>
-            <i class="icon-close icon-active" id="icon-active-login"></i>
-        </div>
-        @if(session()->has('loginError'))
-            <div class="alert alert-danger" role="alert">
-                {{session('loginError')}}
-            </div>
-        @endif
-        <div class="form-join-sign">
-            <form action="/login" method="post" name="loginForm" class="login-form">
-            @csrf
-            <!-- name berguna untuk parsing di URL QueryParam -->
-                {{--                    <div>--}}
-                {{--                        <input type="email" name="email" class="join-sign-email-inputfield" id="email-join-field" placeholder="E-mail" @errors_handler('email') is-invalid--}}
-                {{--                               @enderror value="{{old('email')}}" required>--}}
-                {{--                        @errors_handler("email")--}}
-                {{--                        <div id="join-email-errors_handler" class="join-email-errors_handler invalid-feedback" > {{$message}}</div>--}}
-                {{--                        @enderror--}}
-                {{--                    </div>--}}
-                <div>
-                    <input type="email" name="email" class="join-sign-email-inputfield" id="email-sign-field"
-                           placeholder="E-mail" @error('email') is-invalid
-                           @enderror value="{{old('email')}}" required>
-                    @error("email")
-                    <div id="sign-email-error" class="sign-email-error invalid-feedback"> {{$message}}</div>
-                    @enderror
-                </div>
-
-                {{--                    <div>--}}
-                {{--                        <input type="password" name="password" class="join-sign-pass-inputfield" id="pass-join-field" placeholder="Password" @errors_handler('password') is-invalid--}}
-                {{--                               @enderror required>--}}
-                {{--                        @errors_handler("password")--}}
-                {{--                        <div id="join-pass-errors_handler" class="join-pass-errors_handler invalid-feedback">{{$message}} </div>--}}
-                {{--                        @enderror--}}
-                {{--                    </div>--}}
-
-                <div>
-                    <input type="password" name="password" class="join-sign-pass-inputfield" id="pass-sign-field"
-                           placeholder="Password" @error('password') is-invalid
-                           @enderror required>
-                    @error("password")
-                    <div id="join-pass-error" class="join-pass-error invalid-feedback">{{$message}} </div>
-                    @enderror
-                </div>
-
-                <button type="submit" id="sign-submit" class="join-sign-up">Login</button>
-            </form>
-            <div class="already-have-account">
-                <span>Still a new member?</span> <span id="switch-join">Join here</span>
-            </div>
-        </div>
-    </div>
-</div>
-{{--<script src="js/modal-join-hireme.js"></script>--}}
-{{--<script src="js/jquery-3.6.0.min.js"></script>--}}
 </body>
 </html>

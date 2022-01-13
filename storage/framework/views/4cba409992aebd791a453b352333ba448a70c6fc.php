@@ -22,9 +22,9 @@
 
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
-            <ol class="breadcrumb" style="background-color: var(--gray_5)!important;">
-                <li class="breadcrumb-item"><a href="/switch-to-seller" style="color: var(--primary_green); font-size:1.4rem;">Seller</a></li>
-                <li class="breadcrumb-item active" style="font-size: 14px; color: var(--primary_green); font-weight: var(--weight500)" aria-current="page">Dashboard</li>
+            <ol class="breadcrumb" style="background-color: transparent !important;">
+                <li class="breadcrumb-item"><a href="/switch-to-seller" style="color: var(--primary_green_second); font-size:1.4rem;">Seller</a></li>
+                <li class="breadcrumb-item active" style="font-size: 14px; color: var(--primary_green)" aria-current="page">Dashboard</li>
             </ol>
         </nav>
         <!-- /Breadcrumb -->
@@ -146,7 +146,6 @@
                         </tbody>
                     </table>
                 </div>
-
                 
 
 
