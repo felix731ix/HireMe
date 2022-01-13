@@ -53,7 +53,7 @@
         <?php for($j=0;$j<3;$j++): ?>
             <div class="row mt-5">
                 <?php for($i=$counter;$i<count($products); $i++): ?>
-                    <?php if($productCounter <5): ?>
+                    <?php if($productCounter < 3): ?>
                         <div class="cards col-md-auto">
                             <a href="/marketpage/<?php echo e($products[$i]->id); ?>">
                                 <img src="<?php echo e(Storage::url($products[$i]->image)); ?>" width="280px"
