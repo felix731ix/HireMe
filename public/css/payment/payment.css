@@ -1,0 +1,58 @@
+.modal-checkout{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+    padding: 64px 32px;
+    border-radius: 16px;
+}
+
+.payment-details{
+    margin: 42px 0;
+}
+
+h1{
+    font-size: 3.2rem !important;
+    font-weight: var(--weight700) !important;
+}
+
+h2{
+    font-size: 2rem !important;
+    font-weight: var(--weight500) !important;
+    color: var( --primary_green) !important;
+    margin-top: 8px !important;
+}
+
+.label{
+    font-size: 1.4rem;
+    font-weight: var(--weight700);
+}
+
+.input-field{
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: solid 1px black;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.input-field:focus{
+    outline: solid 1px black;
+}
+
+span{
+    font-size: 1.4rem;
+}
+
+.btnPay{
+    width: 100%;
+    font-size: 1.6rem;
+    outline: none;
+    border-radius: 100px;
+    background-color: var(--primary_green);
+    padding: 10px;
+    border: transparent;
+    color: white;
+}
+
+.btnPay:focus{
+    outline: none;
+}

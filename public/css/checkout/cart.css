@@ -1,0 +1,108 @@
+.cart-title {
+    width: 90vw !important;
+    padding: 1em 170px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.input-form {
+    border: none;
+    border-bottom: solid 1px var(--gray_5);
+}
+
+h5, h6, h3 {
+    color: black !important;
+}
+
+h6 {
+    font-size: 1.2rem !important;
+}
+
+h5 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+}
+
+h3 {
+    font-size: 1.6rem !important;
+}
+
+.card-item {
+    margin: 2em 0;
+    align-items: center;
+}
+
+.card-item img {
+    margin-right: 4em;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+.checkout-area {
+    padding: 25px 20px;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    padding-left: 1em;
+    height: 100%;
+    padding-top: 0.2em
+}
+
+.checkout-details{
+    margin-top: 14px;
+}
+
+.checkout-details span{
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.checkout-details span:last-child{
+    text-align: right;
+}
+
+.btnOrderCart{
+    background-color: var(--primary_green);
+    border: transparent;
+    text-decoration:none;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+}
+
+.btnOrderCart:focus{
+    outline: none;
+}
+
+.btnOrderCart:hover{
+    cursor: pointer;
+}
+
+.btnMarket, .btnMarket:hover, .btnMarket:focus{
+    padding: 10px;
+    background-color: var(--primary_green);
+    color: white;
+    font-weight: normal;
+    border-radius: 8px;
+    text-decoration: none;
+    border: transparent;
+    font-size: 1.4rem;
+    outline: transparent;
+    cursor:pointer;
+}
+
+
+
+
+

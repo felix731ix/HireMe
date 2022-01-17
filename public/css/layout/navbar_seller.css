@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+:root {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 10px;
+    --primary_green: #43D06B;
+    --primary_green_second: rgba(67, 208, 107, 0.6);
+    --red:#F66161;
+    --gray_2: #C2C2C2;
+    --gray_3: #DEDEDE;
+    --gray_4: #F0F0F0;
+    --gray_5: #F5F5F5;
+
+    --weight700 : 700;
+    --weight500: 500;
+    --weight400: 400;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+
+#hireme-logo {
+    width: 178px;
+    object-fit: cover;
+}
+
+.navbar {
+    padding: 16px 126px !important;
+    min-height: 120px !important;
+    background-color: white !important;
+    border-bottom: solid 1px var(--gray_3);
+}
+
+.btn-role {
+    align-items: center;
+    padding-right: 3em;
+    padding-left: 3em;
+    border-right: solid 1px var(--gray_3);
+}
+
+.btnSwitchRole, .btnSwitchRole:focus{
+    background-color: white;
+    padding: 10px 16px;
+    color: var(--primary_green);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.profile-menu {
+    padding-left: 3em;
+}
+
+/* .btn-role {
+    align-items: center;
+    padding-right: 3em;
+    padding-left: 3em;
+    border-right: solid 1px var(--gray_3);
+} */
+
+.nav-menu{
+    background-color: white;
+    padding: 10px 16px;
+    /* border-radius: 50px; */
+    /* color: var(--primary_green); */
+    color: black;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    /* margin-top: 27px; */
+}
+
+.nav-menu:active{
+    background-color: white;
+    padding: 10px 16px;
+    /* border-radius: 50px; */
+    color: var(--primary_green);
+    /* color: black; */
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    /* margin-top: 27px; */
+}
+
+.nav-menu:hover{
+    background-color: white;
+    padding: 10px 16px;
+    /* border-radius: 50px; */
+    color: var(--primary_green);
+    transition: 0.5s;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    /* margin-top: 27px; */
+}
+
+.checked{
+    color: orange;
+}
+
+.progress-bar .bg-primary{
+    background-color: #43D06B!important;
+}
+
+.progress-barcustomized{
+    background-color: #43D06B!important;
+}
+
+.withdraw-earnings, .add-to-cart{
+    background-color: var(--primary_green);
+    width: 100px;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.withdraw-earnings:focus, .add-to-cart:focus{
+   outline: none;
+}
+
+.add-to-cart{
+    background-color: var(--primary_green);
+    width: 150px;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.add-new-item, .add-new-item:hover{
+    background-color: var(--primary_green);
+    border-radius: 100px;
+    font-size: 1.4rem;
+    outline: none;
+    border:transparent;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.dropdown-menu li{
+    font-size: 1.4rem;
+    width: 7vw;
+    outline: transparent;
+}
+
+.breadcrumb-item+.breadcrumb-item::before{
+    color: var(--primary_green_second) !important;
+    font-weight: normal;
+}
+
+.item-link:hover{
+    text-decoration: underline;
+}
+
+.actionButtonSeller{
+    background-color: var(--primary_green);
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    padding: 8px 24px;
+}
+
+.actionButtonSellerRemove{
+    background-color: var(--red);
+}
+

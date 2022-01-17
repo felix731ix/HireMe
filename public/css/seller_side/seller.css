@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+:root {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 10px;
+    --primary_green: #43D06B;
+    --primary_green_second: rgba(67, 208, 107, 0.6);
+    --red: #F66161;
+    --gray_2: #C2C2C2;
+    --gray_3: #DEDEDE;
+    --gray_4: #F0F0F0;
+    --gray_5: #F5F5F5;
+
+    --weight700: 700;
+    --weight500: 500;
+    --weight400: 400;
+}
+
+/* color: var(--primary_green) !important; */
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.form-control-custom{
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #C2C2C2;
+    border-radius: 1rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control-custom:focus{
+    outline: none;
+    border: 1px solid #43D06B;
+}
