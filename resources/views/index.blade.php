@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="button-join-now" id="join-now-banner">
-                    <a href="https://google.com">Join now</a>
+                    <a href="/user-register">Join now</a>
                 </div>
             </div>
         </div>

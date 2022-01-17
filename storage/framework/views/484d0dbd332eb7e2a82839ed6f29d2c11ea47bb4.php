@@ -26,7 +26,7 @@
         <div class="main-body">
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
-                <ol class="breadcrumb" style="background-color: var(--gray_5)!important;">
+                <ol class="breadcrumb" style="background-color: transparent!important;">
                     <li class="breadcrumb-item"><a href="#" style="color: var(--primary_green); font-size:1.4rem;">Seller</a></li>
                     <li class="breadcrumb-item"><a href="/manageps" style="color: var(--primary_green); font-size:1.4rem;">Manage
                             Products & Services</a></li>

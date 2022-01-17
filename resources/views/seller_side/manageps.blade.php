@@ -78,14 +78,14 @@
                         <td style="padding-top: 2em" width="20%">
                             @currency($product->price)
                         </td>
-                        <td style="padding-top: 2em" width="20%">
-                            <a href="/update-item/{{ $product->id }}/edit">
-                                <button class="actionButtonSeller">Edit</button>
-                            </a>
+                        <td style="display: flex; justify-content: space-around; padding: 2em 4em">
+                            <form action="/update-item/{{ $product->id }}/edit" method="get">
+                                <button class="actionButtonSeller" style="cursor: pointer">Edit</button>
+                            </form>
                             <form class="d-inline" action="/remove-item/{{ $product->id }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="actionButtonSeller actionButtonSellerRemove">Remove</button>
+                                <button class="actionButtonSeller actionButtonSellerRemove" style="cursor: pointer">Remove</button>
                             </form>
                         </td>
                     </tr>

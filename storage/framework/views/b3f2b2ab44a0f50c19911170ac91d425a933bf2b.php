@@ -20,11 +20,11 @@
 
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb" class="main-breadcrumb mt-4">
-                <ol class="breadcrumb" style="background-color: var(--gray_5)!important;">
+                <ol class="breadcrumb" style="background-color: transparent!important;">
                     <li class="breadcrumb-item"><a href="/switch-to-seller"
-                            style="color: var(--primary_green); font-size:1.4rem;">Seller</a></li>
+                            style="color: var(--primary_green_second); font-size:1.4rem;">Seller</a></li>
                     <li class="breadcrumb-item active"
-                        style="font-size: 14px; color: var(--primary_green); font-weight: var(--weight500)"
+                        style="font-size: 14px; color: var(--primary_green)"
                         aria-current="page">Manage Products &
                         Services
                     </li>
@@ -62,7 +62,7 @@
                             <?php echo e($loop->index + 1); ?>
 
                         </td>
-                        <td style="text-align: start; padding: 20px; width: 50%">
+                        <td style="text-align: start; padding: 20px; width: 30%">
                             <a href="/marketpage/<?php echo e($product->id); ?>" style="color: black; display: flex">
                                 <div>
                                     <img src="/storage/<?php echo e($product->image); ?>" width="56px" height="56px"
@@ -74,21 +74,21 @@
                                 </div>
                             </a>
                         </td>
-                        <td style="padding-top: 2em">
+                        <td style="padding-top: 2em" width="15%">
                             <?php echo e($product->category->name); ?>
 
                         </td>
                         <td style="padding-top: 2em" width="20%">
                             Rp <?php echo number_format($product->price,0,',','.'); ?>
                         </td>
-                        <td style="padding-top: 2em" width="20%">
-                            <a href="/update-item/<?php echo e($product->id); ?>/edit">
-                                <button class="actionButtonSeller">Edit</button>
-                            </a>
+                        <td style="display: flex; justify-content: space-around; padding: 2em 4em">
+                            <form action="/update-item/<?php echo e($product->id); ?>/edit" method="get">
+                                <button class="actionButtonSeller" style="cursor: pointer">Edit</button>
+                            </form>
                             <form class="d-inline" action="/remove-item/<?php echo e($product->id); ?>" method="post">
                                 <?php echo csrf_field(); ?>
                                 <?php echo method_field('delete'); ?>
-                                <button class="actionButtonSeller actionButtonSellerRemove">Remove</button>
+                                <button class="actionButtonSeller actionButtonSellerRemove" style="cursor: pointer">Remove</button>
                             </form>
                         </td>
                     </tr>
