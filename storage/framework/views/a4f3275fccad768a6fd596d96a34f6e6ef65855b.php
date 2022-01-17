@@ -81,14 +81,14 @@
                         <td style="padding-top: 2em" width="20%">
                             Rp <?php echo number_format($product->price,0,',','.'); ?>
                         </td>
-                        <td style="padding-top: 2em" width="20%">
-                            <a href="/update-item/<?php echo e($product->id); ?>/edit">
-                                <button class="actionButtonSeller">Edit</button>
-                            </a>
+                        <td style="display: flex; justify-content: space-around; padding: 2em 4em">
+                            <form action="/update-item/<?php echo e($product->id); ?>/edit" method="get">
+                                <button class="actionButtonSeller" style="cursor: pointer">Edit</button>
+                            </form>
                             <form class="d-inline" action="/remove-item/<?php echo e($product->id); ?>" method="post">
                                 <?php echo csrf_field(); ?>
                                 <?php echo method_field('delete'); ?>
-                                <button class="actionButtonSeller actionButtonSellerRemove">Remove</button>
+                                <button class="actionButtonSeller actionButtonSellerRemove" style="cursor: pointer">Remove</button>
                             </form>
                         </td>
                     </tr>
